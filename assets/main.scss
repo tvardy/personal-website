@@ -1,0 +1,19 @@
+---
+---
+@import "whiteglass";
+
+$brand-color: #008000;
+
+a {
+  color: $brand-color;
+
+  &:visited {
+    color: darken($brand-color, 5%);
+  }
+}
+
+.site-header {
+  .wrapper {
+    border-bottom: 1px solid $brand-color;
+  }
+}

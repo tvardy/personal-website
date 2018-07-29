@@ -21,6 +21,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tvardy.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: TheTvardy
 github_username:  tvardy
+author: tvardy
 
 # Build settings
 safe: true
@@ -49,7 +50,8 @@ jekyll-archives:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
+exclude:
+  - .idea/
 #   - Gemfile
 #   - Gemfile.lock
 #   - node_modules
