@@ -1,0 +1,56 @@
+backend:
+  name: github
+  repo: tvardy/tvardy.github.io
+  commit_messages:
+    create: 'feat(content): create {{collection}}: “{{slug}}”'
+    update: 'feat(content): update {{collection}}: “{{slug}}”'
+    delete: 'feat(content): delete {{collection}}: “{{slug}}”'
+    uploadMedia: 'feat(assets): upload “{{path}}”'
+    deleteMedia: 'feat(assets): delete “{{path}}”'
+publish_mode: editorial_workflow
+media_folder: "assets"
+slug:
+  encoding: "ascii"
+  clean_accents: true
+collections:
+- name: "pages"
+  label: "Pages"
+  files:
+  - label: "About"
+    name: "about"
+    file: "about.md"
+    fields:
+    - { label: "Title", name: "title", widget: "string" }
+    - { label: "Layout", name: "layout", widget: "string", default: "page" }
+    - { label: "Featured Image", name: "thumbnail", required: false, widget: "image" }
+    - { label: "Content", name: "body", widget: "markdown" }
+  - label: "Resume"
+    name: "resume"
+    file: "resume.md"
+    fields:
+    - { label: "Title", name: "title", widget: "string" }
+    - { label: "Layout", name: "layout", widget: "string", default: "resume" }
+    - { label: "Featured Image", name: "thumbnail", required: false, widget: "image" }
+    - { label: "Content", name: "body", widget: "markdown" }
+- name: "posts"
+  label: "Posts"
+  folder: "_posts"
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  fields:
+  - { label: "Title", name: "title", widget: "string" }
+  - { label: "Publish Date", name: "date", widget: "datetime" }
+  - { label: "Featured Image", name: "thumbnail", required: false, widget: "image" }
+  - { label: "Summary", name: "recap", widget: "string" }
+  - { label: "Content", name: "body", widget: "markdown" }
+- name: "projects"
+  label: "Projects"
+  folder: "_projects"
+  slug: "{{slug}}"
+  filter:
+    field: language
+    value: en
+  fields:
+  - { label: "Name", name: "title", widget: "string" }
+  - { label: "URL", name: "url", widget: "string" }
+  - { label: "Summary", name: "recap", widget: "string" }
+  - { label: "Description", name: "desc", widget: "markdown" }
