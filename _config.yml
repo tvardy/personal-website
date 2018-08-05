@@ -32,6 +32,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
+  - octopress-minify-html
 
 permalink: /blog/:year/:month/:day/:title/
 paginate_path: /blog/:num/
