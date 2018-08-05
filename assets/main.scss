@@ -13,7 +13,20 @@ a {
 }
 
 .site-header {
+  min-height: unset;
+
   .wrapper {
     border-bottom: 1px solid $brand-color;
+    padding-top: 1rem;
+  }
+}
+
+.page-content {
+  padding: 3rem 0;
+}
+
+.site-footer {
+  p {
+    margin-bottom: 0;
   }
 }
