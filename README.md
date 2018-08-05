@@ -1,1 +1,1 @@
-# [tvardy.github.io](https://tvardy.github.io/)
+# [tvardy.netlify.com](https://tvardy.netlify.com/)
