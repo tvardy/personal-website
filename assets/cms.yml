@@ -15,6 +15,7 @@ slug:
 collections:
 - name: "pages"
   label: "Pages"
+  create: true
   files:
   - label: "About"
     name: "about"
@@ -36,6 +37,7 @@ collections:
     - { label: "Content", name: "body", widget: "markdown" }
 - name: "posts"
   label: "Posts"
+  create: true
   folder: "_posts"
   format: "frontmatter"
   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -47,6 +49,7 @@ collections:
   - { label: "Content", name: "body", widget: "markdown" }
 - name: "projects"
   label: "Projects"
+  create: true
   folder: "_projects"
   slug: "{{slug}}"
   fields:
