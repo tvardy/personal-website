@@ -9,4 +9,6 @@ Besides being a senior developer in an International Corporation I also happen t
 
 On this website, I'm trying to gather some interesting issues I faced myself or have been faced by students asking questions or making smaller or bigger mistakes on their travel into the magical Web Development World ;)
 
-If you want to know more about me and my work check out the [Projects](/projects) and [Resume](/resume) pages. If you'd like to contact me, then reach me by my [LinkedIn profile](https://pl.linkedin.com/in/grzegorz-twardowski-7b1082b2).
+If you want to know more about me and my work check out the [Projects](/projects) and [Resume](/resume) pages.
+
+If you'd like to contact me, then reach me by my [LinkedIn profile](https://pl.linkedin.com/in/grzegorz-twardowski-7b1082b2).
