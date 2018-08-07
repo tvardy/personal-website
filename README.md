@@ -1,1 +1,1 @@
-# [tvardy.netlify.com](https://tvardy.netlify.com/)
+# [tvardy.blog](https://tvardy.blog/)
