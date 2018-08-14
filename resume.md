@@ -1,5 +1,5 @@
 ---
-layout: page
 title: Resume
-permalink: /resume/
+layout: page
+permalink: /resume
 ---
