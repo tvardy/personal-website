@@ -1,3 +1,4 @@
 ---
+title: CMS
 layout: cms
 ---
