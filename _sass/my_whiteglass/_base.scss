@@ -1,0 +1,7 @@
+a {
+  color: $brand-color;
+
+  &:visited {
+    color: darken($brand-color, 5%);
+  }
+}
