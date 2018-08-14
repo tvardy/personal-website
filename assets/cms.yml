@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: tvardy/tvardy.github.io
+  repo: tvardy/personal-website
   commit_messages:
     create: 'feat(content): create {{collection}}: “{{slug}}”'
     update: 'feat(content): update {{collection}}: “{{slug}}”'
@@ -16,47 +16,82 @@ collections:
 - name: "pages"
   label: "Pages"
   label_singular: "Page"
-  create: true
   files:
   - label: "About"
     name: "about"
     file: "about.md"
     format: "frontmatter"
     fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Layout", name: "layout", widget: "string", default: "page" }
-    - { label: "Featured Image", name: "thumbnail", required: false, widget: "image" }
-    - { label: "Content", name: "body", widget: "markdown" }
-  - label: "Resume"
-    name: "resume"
-    file: "resume.md"
-    format: "frontmatter"
-    fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Layout", name: "layout", widget: "string", default: "resume" }
-    - { label: "Featured Image", name: "thumbnail", required: false, widget: "image" }
-    - { label: "Content", name: "body", widget: "markdown" }
+    - label: "Title"
+      name: "title"
+      widget: "string"
+    - label: "Layout"
+      name: "layout"
+      widget: "string"
+      default: "page"
+    - label: "Permalink"
+      name: "permalink"
+      widget: "hidden"
+      default: "/about/"
+    - label: "Content"
+      name: "body"
+      widget: "markdown"
 - name: "posts"
   label: "Posts"
   label_singular: "Post"
-  create: true
   folder: "_posts"
+  create: true
   format: "frontmatter"
   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
   fields:
-  - { label: "Title", name: "title", widget: "string" }
-  - { label: "Publish Date", name: "date", widget: "datetime" }
-  - { label: "Featured Image", name: "thumbnail", required: false, widget: "image" }
-  - { label: "Summary", name: "recap", widget: "string" }
-  - { label: "Content", name: "body", widget: "markdown" }
+  - label: "Title"
+    name: "title"
+    widget: "string"
+  - label: "Layout"
+    name: "layout"
+    widget: "hidden"
+    default: "post"
+  - label: "Date"
+    name: "date"
+    widget: "date"
+  - label: 'Tags'
+    name: 'tags'
+    widget: 'list'
+    required: false
+    default: []
+  - label: "Featured Image"
+    name: "thumbnail"
+    required: false
+    widget: "image"
+  - label: "Summary"
+    name: "recap"
+    required: false
+    widget: "markdown"
+  - label: "Content"
+    name: "body"
+    widget: "markdown"
 - name: "projects"
   label: "Projects"
   label_singular: "Project"
-  create: true
   folder: "_projects"
+  create: true
+  format: "frontmatter"
   slug: "{{slug}}"
   fields:
-  - { label: "Name", name: "title", widget: "string" }
-  - { label: "URL", name: "url", widget: "string" }
-  - { label: "Summary", name: "recap", widget: "string" }
-  - { label: "Description", name: "body", widget: "markdown" }
+  - label: "Name"
+    name: "title"
+    widget: "string"
+  - label: "Layout"
+    name: "layout"
+    widget: "hidden"
+    default: "post"
+  - label: "URL"
+    name: "url"
+    widget: "string"
+  - label: "Summary"
+    name: "recap"
+    required: false
+    widget: "string"
+  - label: "Description"
+    name: "body"
+    widget: "markdown"

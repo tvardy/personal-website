@@ -1,7 +1,7 @@
 ---
 title: About
 layout: page
-thumbnail: ''
+permalink: /about
 ---
 My name is Greg. I'm a full-stack JS developer living and working in Poland.
 
