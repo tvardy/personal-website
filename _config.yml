@@ -39,11 +39,11 @@ paginate: 3
 
 jekyll-archives:
   enabled:
-    - categories
+    # - categories
     - tags
   layout: category_archives
   permalinks:
-    category: /blog/cat/:name/
+    # category: /blog/cat/:name/
     tag: /blog/tag/:name/
 
 include:
