@@ -24,7 +24,6 @@ github_username:  tvardy
 author: tvardy
 
 # Build settings
-safe: true
 markdown: kramdown
 theme: jekyll-whiteglass
 plugins:
