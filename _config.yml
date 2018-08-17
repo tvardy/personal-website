@@ -19,14 +19,13 @@ plugins:
   - octopress-minify-html
 
 permalink: "/blog/:year/:month/:day/:title/"
-
 pagination:
   enabled: true
-  debug: true
-  collection: "posts"
   per_page: 3
-  permalink: "/blog/:num/"
-  title: "Archive page :num | :title"
+  permalink: '/blog/:num/'
+  title: ':title | page :num of :max'
+  limit: 0
+  sort_field: 'date'
   sort_reverse: true
 
 kramdown:
