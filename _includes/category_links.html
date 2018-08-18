@@ -1,4 +1,4 @@
-{% if include.categories != empty %} •
+{% if include.categories != empty %}{{ site.in_text_separator }}
   {% for category in include.categories %}
     {% assign no_comma = forloop.last %}
     {% for archive in site.archives %}
@@ -9,7 +9,7 @@
   {% endfor %}
 {% endif %}
 
-{% if include.tags != empty %} •
+{% if include.tags != empty %}{{ site.in_text_separator }}
   {% for tag in include.tags %}
     {% assign no_comma = forloop.last %}
     {% for archive in site.archives %}
