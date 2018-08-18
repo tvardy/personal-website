@@ -7,8 +7,9 @@ author: tvardy
 lang: en
 timezone: UTC
 excerpt_separator: "<!-- more -->"
+in_text_separator: "<span class=\"in_text_separator\">•</span>"
 #google_analytics:
-#comments: false
+comments: false
 
 markdown: kramdown
 plugins:
@@ -19,11 +20,12 @@ plugins:
   - octopress-minify-html
 
 permalink: "/blog/:year/:month/:day/:title/"
+
 pagination:
   enabled: true
   per_page: 3
-  permalink: '/blog/:num/'
-  title: ':title | page :num of :max'
+  permalink: "/blog/:num/"
+  title: "Blog archive page :num"
   limit: 0
   sort_field: 'date'
   sort_reverse: true
@@ -42,6 +44,18 @@ jekyll-archives:
   layout: category_archives
   permalinks:
     tag: /blog/tag/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
 
 include:
   - _redirects

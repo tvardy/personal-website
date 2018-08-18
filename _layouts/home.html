@@ -29,7 +29,7 @@ layout: default
               {% include category_links.html categories=post.categories tags=post.tags %}
             {% endif %}
             {% if post.external-url %}
-              • <a href="{{ post.url | relative_url }}">Permalink</a>
+              {{ site.in_text_separator }}<a href="{{ post.url | relative_url }}">Permalink</a>
             {% endif %}
           </p>
         </header>
