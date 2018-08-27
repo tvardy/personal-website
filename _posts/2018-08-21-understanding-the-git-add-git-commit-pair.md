@@ -3,12 +3,12 @@ title: Understanding the "git add" + "git commit" commands pair
 tag: [ git, vcs, IT metaphors ]
 ---
 Sooner or later all of my students step into learning [Git](//git-scm.com).
-It's pretty obvious; I can't really imagine situation in which a person wanting
+It's pretty obvious; I can't really imagine a situation in which a person wanting
 to become a programmer (of any programming language(s)) would not need to learn
 and use a <accr title="Version Control System">VCS</accr>.
 And `git` gained its high position in this area for a reason.
 
-One thing I noticed is that roughly one on four of my students would asked me
+One thing I noticed is that roughly one on four of my students would ask me
 a question like:
 
 > "Why do I need to do 
@@ -21,7 +21,7 @@ a question like:
 >
 > ?!
 >
-> What's the real life purpose of that?!"
+> What's the real-life purpose of that?!"
 
 The short answer is: You don't actually have to (but you often should)
 
@@ -31,7 +31,7 @@ The longer answer is all based on one word: _control_.
 
 ## The short answer
 
-So the short answer to the above mentioned issue could simply be: Use `git commit -a` instead!
+So the short answer to the above-mentioned issue could simply be: Use `git commit -a` instead!
 Or if you were regularly using `git commit -m "commit message"`
 then probably `git commit -am "commit message"` would do better for you.
 
@@ -64,7 +64,7 @@ this common pattern. And it is... a metaphor of online shopping.
 Isn't it what gives us _control_ when we're shopping online? The "view cart" option,
 before we really buy anything ;)
 
-When the students imagine the above mentioned mechanism of working with their source code
+When the students imagine the above-mentioned mechanism of working with their source code
 as a procedure of buying goods at Amazon, eBay etc. everything becomes more clear.
 
 
@@ -87,15 +87,15 @@ as the second step.
 
 ### Pay == git commit
 
-Yes! When you finally decide to click the pay button that's the moment of your **commitment**.
+Yes! When you finally decide to click the "Pay" button that's the moment of your **commitment**.
 You're fully responsible for this decision.
 
 Consequently, that's what your commitment of the work being done on your source code
-should be. Even though this is still something what could get undone, it doesn't mean
+should be. Even though this is still something that could get undone, it doesn't mean
 you shouldn't pay attention and do your best.
 
 Thus this is the time you as a developer pledge a part of your changes as done and ready
-to be put into the rest of the sourcecode.
+to be put into the rest of the source code.
 
 Another great advantage of this attitude is the ability of logical separation
 of certain changes into separate commits. If you've changed files "x", "y" and "z",
