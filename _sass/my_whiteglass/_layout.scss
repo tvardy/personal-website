@@ -18,15 +18,18 @@
 
 .post-content {
   h1 { @include fluid-type(($on-palm / 2), $on-laptop, 2rem, 2.4rem); }
-  h2 { @include fluid-type(($on-palm / 2), $on-laptop, 1.8rem, 2.2rem); }
-  h3 { @include fluid-type(($on-palm / 2), $on-laptop, 1.6rem, 2rem); }
-  h4 { @include fluid-type(($on-palm / 2), $on-laptop, 1.4rem, 1.8rem); }
-  h5 { @include fluid-type(($on-palm / 2), $on-laptop, 1.2rem, 1.4rem); }
+  h2 { @include fluid-type(($on-palm / 2), $on-laptop, 1.7rem, 2.1rem); }
+  h3 { @include fluid-type(($on-palm / 2), $on-laptop, 1.4rem, 1.8rem); }
+  h4 { @include fluid-type(($on-palm / 2), $on-laptop, 1.2rem, 1.5rem); }
+  h5 { @include fluid-type(($on-palm / 2), $on-laptop, 1.1rem, 1.3rem); }
   h6 {
     @include fluid-type(($on-palm / 2), $on-laptop, .9rem, 1.1rem);
     font-weight: bold;
   }
-  p { @include fluid-type(($on-palm / 2), $on-laptop, .9rem, 1.1rem); }
+  p {
+    @include fluid-type(($on-palm / 2), $on-laptop, .9rem, 1.1rem);
+    text-align: justify;
+  }
 }
 
 .site-footer {
