@@ -61,8 +61,8 @@ And maybe it'd also satisfy you.
 But there's also the longer answer I usually give to my students to help them understand
 this common pattern. And it is... a metaphor of online shopping.
 
-Isn't it what gives us _control_ when we're shopping online? The "view cart" option,
-before we really buy anything ;)
+Isn't it what gives us _control_ when we're shopping online - the "view cart" option,
+before we really buy anything? ;)
 
 When the students imagine the aforementioned mechanism of working with their source code
 as a procedure of buying goods on Amazon, eBay etc. everything becomes clearer.
@@ -87,8 +87,8 @@ as the second step.
 
 ### Pay == git commit
 
-Yes! When you finally decide to click the "Pay" button that's the moment of your **commitment**.
-You're fully responsible for this decision.
+Yes! When you finally decide to click the "Pay" button that's the moment of your **commitment**
+(have you noticed the intended pun here?). You're fully responsible for this decision.
 
 Consequently, that's what your commitment of the work being done on your source code
 should be like. Even though this is still something that could be reversed, it doesn't mean
