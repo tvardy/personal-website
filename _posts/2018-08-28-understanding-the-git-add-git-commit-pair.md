@@ -1,6 +1,9 @@
 ---
 title: Understanding the "git add" + "git commit" commands pair
 tag: [ git, vcs, IT metaphors ]
+image: 
+  unsplashId: 1480506132288-68f7705954bd
+  class: page-image--alpha page-image--grey
 ---
 Sooner or later all of my students step into learning [Git](//git-scm.com).
 It's a no-brainer; I can't really imagine a situation in which a person wanting
@@ -61,7 +64,7 @@ And maybe it'd also satisfy you.
 But there's also the longer answer I usually give to my students to help them understand
 this common pattern. And it is... a metaphor of online shopping.
 
-Isn't it what gives us _control_ when we're shopping online - the "view cart" option,
+Isn't it what gives us _control_ when we're shopping online -- the "view cart" option,
 before we really buy anything? ;)
 
 When the students imagine the aforementioned mechanism of working with their source code
@@ -110,4 +113,4 @@ So it's like splitting your shopping into, for instance, private and corporate e
 As a bonus on our metaphorical view on Git commands let's get back to the "Short answer" section.
 
 Can you tell the similarities between clicking "Buy now" button on eBay and calling
-`git commit -am "commit message` command, yourself? ;) 
+`git commit -am "commit message"` command, yourself? ;) 
