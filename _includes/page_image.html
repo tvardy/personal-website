@@ -1,0 +1,6 @@
+{% capture url %}
+  {% if page.image.unsplashId %}
+  //images.unsplash.com/photo-{{ page.image.unsplashId }}?auto=format&fit=crop&w=896&q=80
+  {% endif %}
+{% endcapture %}
+<div class="page-image {{ page.image.class }}" style="background-image: url({{ url }})"></div>
