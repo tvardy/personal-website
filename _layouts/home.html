@@ -17,9 +17,9 @@ layout: default
         <header class="post-header">
           <h1 class="post-title">
             {% if post.external-url %}
-              <a class="post-link" href="{{ post.external-url }}">{{ post.title | escape }} &rarr;</a>
+              <a class="post-link" href="{{ post.external-url }}">{{ post.title | smartify | escape }} &rarr;</a>
             {% else %}
-              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | smartify | escape }}</a>
             {% endif %}
           </h1>
 
