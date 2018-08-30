@@ -2,7 +2,7 @@
 title: About
 permalink: /about
 ---
-## About author
+## ... author
 
 My name is Greg. I'm a full-stack JS developer living and working in Poland.
 
@@ -17,7 +17,7 @@ If you'd like to contact me, then reach me by
 my [LinkedIn profile](https://pl.linkedin.com/in/grzegorz-twardowski-7b1082b2).
 
 
-## About this site
+## ... this site
 
 On this website, I'm trying to gather some interesting issues I faced myself
 or have been faced by students asking questions or making smaller or bigger mistakes
