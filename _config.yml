@@ -58,6 +58,7 @@ defaults:
       layout: post
 
 include:
+  - _headers
   - _redirects
 
 exclude:
