@@ -2,11 +2,11 @@ backend:
   name: github
   repo: tvardy/personal-website
   commit_messages:
-    create: 'feat(content): create {{collection}}: “{{slug}}”'
-    update: 'feat(content): update {{collection}}: “{{slug}}”'
-    delete: 'feat(content): delete {{collection}}: “{{slug}}”'
-    uploadMedia: 'feat(assets): upload “{{path}}”'
-    deleteMedia: 'feat(assets): delete “{{path}}”'
+    create: 'feat(content): create {{slug}}'
+    update: 'feat(content): update {{slug}}'
+    delete: 'feat(content): delete {{slug}}'
+    uploadMedia: 'feat(assets): upload {{path}}'
+    deleteMedia: 'feat(assets): delete {{path}}'
 publish_mode: editorial_workflow
 media_folder: "assets"
 slug:
@@ -52,7 +52,7 @@ collections:
     required: false
     default: []
   - label: "Featured Image"
-    name: "thumbnail"
+    name: "image"
     required: false
     widget: "image"
   - label: "Content"
