@@ -1,0 +1,13 @@
+{% assign feed_path = "/feed.xml" %}
+{% if site.feed and site.feed.path %}
+{% assign feed_path = site.feed.path %}
+{% endif %}
+&copy; {{ site.author }}
+- Powered by <a href="https://jekyllrb.com" target="_blank">Jekyll</a>
+&amp; a modified <a href="https://github.com/yous/whiteglass" target="_blank">whiteglass</a> theme<br>
+Subscribe via <a href="{{ feed_path | absolute_url }}" target="_blank">RSS</a>
+<br>
+<small>
+This website is using cookies for gathering anonymous statistical data;<br>
+if you wish not being considered in this statistics, please set up your browser to not to store cookies.
+</small>
