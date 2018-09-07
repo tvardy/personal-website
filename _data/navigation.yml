@@ -2,8 +2,8 @@
 # pages in order as they should show up.
 main:
 - title: "About"
-  url: /about/
+  url: /about
 - title: "Resume"
   url: /resume
 - title: "Projects"
-  url: /projects/
+  url: /projects
