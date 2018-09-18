@@ -38,6 +38,10 @@
     opacity: .66;
   }
 
+  &--desaturate {
+    filter: grayscale(50%)
+  }
+
   &--grey {
     filter: grayscale(88%)
   }
