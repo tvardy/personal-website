@@ -14,17 +14,8 @@ And `git` established its esteemed reputation in this area for good reason.
 One thing I have noticed is that roughly one in four of my students will ask me
 a question like:
 
-> "Why do I need to do 
->
-> `git add`
->
->  command and then follow with the 
->
-> `git commit`
->
-> ?!
->
-> What's the real-life purpose of that?!"
+> Why do I need to do `git add` command and then follow with
+> the `git commit` ?! What's the real-life purpose of that?!
 
 The short answer is: You don't actually have to (but you often should)
 
