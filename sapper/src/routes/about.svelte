@@ -1,5 +1,13 @@
+<script>
+  import { _getPageTitle } from '../_global'
+
+  const page = {
+    title: 'About'
+  }
+</script>
+
 <svelte:head>
-	<title>About</title>
+  <title>{_getPageTitle(page)}</title>
 </svelte:head>
 
 <h1>About this site</h1>

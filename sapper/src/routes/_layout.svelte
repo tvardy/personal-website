@@ -1,22 +1,21 @@
 <script>
-	import Nav from '../components/Nav.svelte';
+  import PageNav from '../components/page/Nav.svelte'
+  import PageFooter from '../components/page/Footer.svelte'
 
-	export let segment;
+  import { site, pages } from '../_global'
+
+  export let segment
 </script>
 
-<style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-</style>
+<!-- // header -->
+<PageNav {segment} {site} {pages} />
 
-<Nav {segment}/>
-
-<main>
-	<slot></slot>
+<main class="page-content" aria-label="Content">
+<!--    TODO: add another slot for the page.image -->
+<!--  {% if page.image %}{% include page_image.html %}{% endif %}-->
+  <div class="wrapper">
+    <slot />
+  </div>
 </main>
+
+<PageFooter {site} />
