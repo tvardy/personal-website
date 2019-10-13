@@ -1,17 +1,33 @@
+<script context="module">
+  import { paths } from '../_settings'
+
+  export async function preload() {
+    const res = await this.fetch(paths.page.all)
+    const pages = await res.json()
+
+    return { pages }
+  }
+</script>
+
 <script>
   import PageNav from '../components/page/Nav.svelte'
   import PageFooter from '../components/page/Footer.svelte'
 
-  import { site, pages } from '../_global'
+  import { site } from '../_settings'
 
   export let segment
+  export let pages
+
 </script>
 
 <style lang="scss" global>
   @import "../sass/main.scss";
 </style>
 
-<!-- // header -->
+<svelte:head>
+  <meta name="description" content="{site.description}">
+</svelte:head>
+
 <PageNav {segment} {site} {pages} />
 
 <main class="page-content" aria-label="Content">

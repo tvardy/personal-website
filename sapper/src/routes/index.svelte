@@ -1,9 +1,9 @@
 <script>
-  import { _getPageTitle } from '../_global'
+  import { getPageTitle } from '../_utils'
 </script>
 
 <svelte:head>
-  <title>{_getPageTitle()}</title>
+  <title>{getPageTitle()}</title>
 </svelte:head>
 
 <h1>It works!</h1>

@@ -1,7 +1,7 @@
 <script>
 	export let segment
   export let site
-  export let pages
+  export let pages = []
 </script>
 
 <header class="site-header">
@@ -10,8 +10,8 @@
     <a class="site-title" href="/">{ site.title }</a>
 
     <nav class="site-nav">
-      {#each pages as { name, href }}
-        <a class="page-link" class:selected="{segment === name}" href="{ href }" rel="prefetch">{ name }</a>
+      {#each pages as { slug, href, title }}
+        <a class="page-link" class:selected="{segment === slug}" href="{ href }" rel="prefetch">{title}</a>
       {/each}
     </nav>
 

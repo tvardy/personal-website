@@ -7,24 +7,22 @@ export const site = {
   timezone: 'UTC',
   excerpt_separator: '<!-- more -->',
   in_text_separator: '<span class="in_text_separator">•</span>',
-  google_analytics: 'UA-125050706-1'
+  google_analytics: 'UA-125050706-1',
 }
 
-export const pages = [
-  {
-    name: 'about',
-    href: '/about'
+export const paths = {
+  page: {
+    all: 'pages',
+    content: '_pages/{{slug}}.md',
   },
-  {
-    name: 'resume',
-    href: '/resume'
+  post: {
+    content: 'posts/{{slug}}.md',
   },
-  {
-    name: 'projects',
-    href: '/projects'
-  }
-]
+}
 
-export function _getPageTitle(page = {}) {
-  return `${page.title ? `${page.title} | ` : ''}${site.title}`
+export const errors = {
+  404: {
+    short: 'Page not found :(',
+    long: 'The requested page could not be found.'
+  },
 }

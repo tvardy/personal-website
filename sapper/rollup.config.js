@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
+import json from 'rollup-plugin-json';
 import svelte from 'rollup-plugin-svelte';
 import sveltePreprocess from 'svelte-preprocess';
 import babel from 'rollup-plugin-babel';
@@ -29,6 +30,7 @@ export default {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
+		  json(),
 			replace({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
@@ -74,6 +76,7 @@ export default {
 		input: config.server.input(),
 		output: config.server.output(),
 		plugins: [
+		  json(),
 			replace({
 				'process.browser': false,
 				'process.env.NODE_ENV': JSON.stringify(mode)
