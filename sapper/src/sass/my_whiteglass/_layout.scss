@@ -12,6 +12,12 @@
   }
 }
 
+.site-nav {
+  .page-link.selected {
+    color: $brand-color;
+  }
+}
+
 .page-image {
   $image-max-width: $content-width + 6rem;
 

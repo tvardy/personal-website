@@ -8,16 +8,13 @@
     const { slug } = params
 
     if (lookup.has(slug)) {
-      const res = await _self.fetch(
-        interpolateString(paths.page.content, { slug })
-      )
-      const data = await res.text()
-
       const page = pages.find(page => page.slug === slug)
 
-      page.content = data
+      const res = await _self.fetch(interpolateString(paths.page.content, {slug}))
 
       if (res.status === 200) {
+        page.content = await res.text()
+
         return { page }
       } else {
         _onError(res, { message: res.statusText })
@@ -26,14 +23,15 @@
       _onError({ status: 404 }, { message: 'Not found' })
     }
 
-    function _onError(res, data) {
-      _self.error(res.status, data.message);
+    function _onError({ status }, { message }) {
+      _self.error(status, message)
     }
   }
 </script>
 
 <script>
   import { getPageTitle } from '../_utils'
+  import Markdown from '../components/Markdown.svelte'
 
   export let page
 </script>
@@ -42,4 +40,6 @@
   <title>{getPageTitle(page)}</title>
 </svelte:head>
 
-<pre>{page.content}</pre>
+<h1>{page.title}</h1>
+
+<Markdown content={page.content} />
