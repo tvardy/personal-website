@@ -6,4 +6,4 @@
   <title>{_getPageTitle()}</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1>It works!</h1>

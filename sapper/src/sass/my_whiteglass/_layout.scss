@@ -1,0 +1,86 @@
+.in_text_separator {
+  font-family: monospace;
+  margin: 0 .1em 0 .25em;
+}
+
+.site-header {
+  min-height: unset;
+
+  .wrapper {
+    border-bottom: 1px solid $brand-color;
+    padding-top: 1rem;
+  }
+}
+
+.page-image {
+  $image-max-width: $content-width + 6rem;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  width: $image-max-width;
+  height: 24rem;
+
+  @include media-query($image-max-width) {
+    max-width: 100%;
+    height: 20rem;
+  }
+
+  @include media-query($on-palm) {
+    max-width: 100%;
+    height: 16rem;
+  }
+
+  &--alpha {
+    opacity: .66;
+  }
+
+  &--desaturate {
+    filter: grayscale(50%)
+  }
+
+  &--grey {
+    filter: grayscale(88%)
+  }
+}
+
+.post-header {
+  h1 { @include fluid-type(($on-palm / 2), $on-laptop, 2.2rem, 2.6rem); }
+}
+
+.post-content {
+  h1 { @include fluid-type(($on-palm / 2), $on-laptop, 2rem, 2.4rem); }
+  h2 { @include fluid-type(($on-palm / 2), $on-laptop, 1.7rem, 2.1rem); }
+  h3 { @include fluid-type(($on-palm / 2), $on-laptop, 1.4rem, 1.8rem); }
+  h4 { @include fluid-type(($on-palm / 2), $on-laptop, 1.2rem, 1.5rem); }
+  h5 { @include fluid-type(($on-palm / 2), $on-laptop, 1.1rem, 1.3rem); }
+  h6 {
+    @include fluid-type(($on-palm / 2), $on-laptop, .9rem, 1.1rem);
+    font-weight: bold;
+  }
+  p {
+    @include fluid-type(($on-palm / 2), $on-laptop, .9rem, 1.1rem);
+    text-align: justify;
+  }
+}
+
+.site-footer {
+  .wrapper {
+    border-top: 1px solid $brand-color;
+    padding: .66rem 0 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  small {
+    display: block;
+    font-size: .8em;
+    line-height: 1.4;
+    margin-top: .5em;
+  }
+}

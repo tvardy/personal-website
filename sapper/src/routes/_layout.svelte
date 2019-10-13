@@ -7,6 +7,10 @@
   export let segment
 </script>
 
+<style lang="scss" global>
+  @import "../sass/main.scss";
+</style>
+
 <!-- // header -->
 <PageNav {segment} {site} {pages} />
 
