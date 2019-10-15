@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "compression": "^1.7.1",
+    "front-matter": "^3.0.2",
     "marked": "^0.7.0",
+    "pify": "^4.0.1",
     "polka": "next",
     "sirv": "^0.4.0"
   },

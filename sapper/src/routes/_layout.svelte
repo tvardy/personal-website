@@ -1,11 +1,10 @@
 <script context="module">
-  import { paths } from '../_settings'
-
-  export async function preload() {
-    const res = await this.fetch(paths.page.all)
+  export async function preload(page, { site }) {
+    const { api } = site
+    const res = await this.fetch(api._root + api.pages)
     const pages = await res.json()
 
-    return { pages }
+    return { site, pages }
   }
 </script>
 
@@ -13,11 +12,9 @@
   import PageNav from '../components/page/Nav.svelte'
   import PageFooter from '../components/page/Footer.svelte'
 
-  import { site } from '../_settings'
-
   export let segment
-  export let pages
-
+  export let site = {}
+  export let pages = []
 </script>
 
 <style lang="scss" global>

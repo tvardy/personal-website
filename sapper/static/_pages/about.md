@@ -1,3 +1,8 @@
+---
+slug: about
+title: About
+href: /about
+---
 ## ... author
 
 My name is Greg. I'm a full-stack JS developer living and working in Poland.

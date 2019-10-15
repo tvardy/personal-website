@@ -12,17 +12,18 @@ export const site = {
     'about',
     'resume',
     'projects'
-  ]
+  ],
+  api: {
+    _root: 'api',
+    pages: '/pages',
+    page: '/page/{{slug}}'
+  }
 }
 
 export const paths = {
-  page: {
-    all: 'pages',
-    content: '_pages/{{slug}}.md',
-  },
-  post: {
-    content: 'posts/{{slug}}.md',
-  },
+  static: './static',
+  page: '/_pages/{{slug}}.md',
+  post: '/_posts/{{slug}}.md',
 }
 
 export const errors = {

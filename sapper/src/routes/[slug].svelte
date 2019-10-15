@@ -1,21 +1,18 @@
 <script context="module">
-  import { pages, lookup } from './_pages'
-  import { paths } from '../_settings'
   import { interpolateString } from '../_utils'
 
-  export async function preload({ params }) {
+  export async function preload({ params }, { site }) {
     const _self = this
     const { slug } = params
+    const { api } = site
 
-    if (lookup.has(slug)) {
-      const page = pages.find(page => page.slug === slug)
-
-      const res = await _self.fetch(interpolateString(paths.page.content, {slug}))
+    if (site.nav.includes(slug)) {
+      const res = await this.fetch(api._root + interpolateString(api.page, { slug }))
 
       if (res.status === 200) {
-        page.content = await res.text()
+        const page = await res.json()
 
-        return { page }
+        return { site, page }
       } else {
         _onError(res, { message: res.statusText })
       }
@@ -33,11 +30,12 @@
   import { getPageTitle } from '../_utils'
   import Markdown from '../components/Markdown.svelte'
 
-  export let page
+  export let site = {}
+  export let page = {}
 </script>
 
 <svelte:head>
-  <title>{getPageTitle(page)}</title>
+  <title>{getPageTitle(site, page)}</title>
 </svelte:head>
 
 <h1>{page.title}</h1>

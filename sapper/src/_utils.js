@@ -1,6 +1,4 @@
-import { site } from './_settings'
-
-export function getPageTitle(page = {}) {
+export function getPageTitle(site, page = {}) {
   return `${page.title ? `${page.title} | ` : ''}${site.title}`
 }
 
