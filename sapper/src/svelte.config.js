@@ -1,4 +1,4 @@
-const sveltePreprocess = require('svelte-preprocess');
+const sveltePreprocess = require('svelte-preprocess')
 
 module.exports = {
   preprocess: sveltePreprocess({
@@ -9,4 +9,4 @@ module.exports = {
       plugins: [require('autoprefixer')],
     }
   })
-};
+}

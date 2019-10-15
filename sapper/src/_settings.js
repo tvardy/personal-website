@@ -8,6 +8,11 @@ export const site = {
   excerpt_separator: '<!-- more -->',
   in_text_separator: '<span class="in_text_separator">•</span>',
   google_analytics: 'UA-125050706-1',
+  nav: [
+    'about',
+    'resume',
+    'projects'
+  ]
 }
 
 export const paths = {
