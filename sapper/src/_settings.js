@@ -22,7 +22,7 @@ export const site = {
 
 export const paths = {
   static: './static',
-  page: '/_pages/{{slug}}.md',
+  pages: [ '/_pages/**/*.md' ],
   post: '/_posts/{{slug}}.md',
 }
 

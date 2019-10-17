@@ -9,3 +9,11 @@ export function interpolateString(str, data) {
       str
     )
 }
+
+export function sendJSON(res, data, status = 200) {
+  res.writeHead(status, {
+    'Content-Type': 'application/json'
+  })
+
+  res.end(JSON.stringify(data))
+}

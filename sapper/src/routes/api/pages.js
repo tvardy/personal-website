@@ -1,13 +1,10 @@
-import { getPagesData } from './_actions'
+import { getNavData } from './_pages'
+import { sendJSON } from '../../_utils'
 
 export async function get(req, res) {
-  const data = await getPagesData()
+  const data = await getNavData()
 
   // TODO: handle error
 
-  res.writeHead(200, {
-    'Content-Type': 'application/json'
-  })
-
-  res.end(JSON.stringify(data))
+  sendJSON(res, data)
 }
