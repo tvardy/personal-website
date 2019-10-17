@@ -54,6 +54,9 @@ export async function getPage(slug) {
       content: page.body
     }
   } else {
-    // TODO: handle 404
+    throw {
+      status: 404,
+      message: 'resource not found'
+    }
   }
 }
