@@ -10,6 +10,23 @@ export function interpolateString(str, data) {
     )
 }
 
+export function reduceToObjByKey(key) {
+  return (result, item) => {
+    const theKey = _deepGetKey(item, key)
+
+    result[theKey] = item
+
+    return result
+  }
+
+  function _deepGetKey(obj, key) {
+    if (/\./.test(key)) {
+      return key.split('.').reduce((src, subkey) => src[subkey], obj)
+    }
+    return obj[key]
+  }
+}
+
 export function sendJSON(res, data, status = 200) {
   res.writeHead(status, {
     'Content-Type': 'application/json'

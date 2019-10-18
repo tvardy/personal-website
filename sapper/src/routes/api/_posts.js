@@ -6,6 +6,7 @@ import matter from 'front-matter'
 import pify from 'pify'
 
 import { paths } from '../../_settings'
+import { reduceToObjByKey } from '../../_utils'
 
 const readFile = pify(fs.readFile)
 
@@ -21,25 +22,24 @@ export async function getPosts() {
     )
 
     _posts = files
-      .map((file, i) => {
-        const basename = path.basename(file)
-        const [ , date, slug ] = basename.match(/^(\d{4}-\d{2}-\d{2})-([a-z\-]+)\.\w{2,3}$/)
-        const { attributes, body } = matter(data[i])
-
-        return {
-          file: basename.replace(`${path.extname(file)}`, ''),
-          date,
-          slug,
-          ...attributes,
-          body
-        }
-      })
-      .reduce((obj, post) => {
-        obj[post.file] = post
-        return obj
-      }, {})
+      .map(_parsePost)
+      .reduce(reduceToObjByKey('file'), {})
 
     return _posts
+
+    function _parsePost(file, i) {
+      const basename = path.basename(file)
+      const [, date, slug] = basename.match(/^(\d{4}-\d{2}-\d{2})-([a-z\-]+)\.\w{2,3}$/)
+      const {attributes, body} = matter(data[i])
+
+      return {
+        file: basename.replace(`${path.extname(file)}`, ''),
+        ...attributes,
+        date,
+        slug,
+        body,
+      }
+    }
   }
 
   return Promise.resolve(_posts)

@@ -6,6 +6,7 @@ import matter from 'front-matter'
 import pify from 'pify'
 
 import { paths, site } from '../../_settings'
+import { reduceToObjByKey } from '../../_utils'
 
 const readFile = pify(fs.readFile)
 
@@ -21,10 +22,7 @@ export async function getPages() {
 
     _pages = data
       .map(str => matter(str))
-      .reduce((obj, page) => {
-        obj[page.attributes.slug] = page
-        return obj
-      }, {})
+      .reduce(reduceToObjByKey('attributes.slug'), {})
 
     return _pages
   }
