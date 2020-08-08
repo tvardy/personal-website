@@ -1,0 +1,14 @@
+.site-header {
+  min-height: unset;
+
+  .wrapper {
+    border-bottom: 1px solid $brand-color;
+    padding-top: 1rem;
+  }
+}
+
+.site-nav {
+  .page-link.selected {
+    color: $brand-color;
+  }
+}

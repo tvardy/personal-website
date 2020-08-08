@@ -1,7 +1,7 @@
 export const site = {
-  title: 'tvardy.blog',
+  title: 'tvardy.github.io',
   description: `A developers' website to share some thoughts, ideas, code, an official resume etc.`,
-  url: 'https://tvardy.blog',
+  url: 'https://tvardy.github.io',
   author: 'tvardy',
   lang: 'en',
   timezone: 'UTC',
@@ -16,7 +16,8 @@ export const site = {
   api: {
     _root: 'api',
     pages: '/pages',
-    page: '/page/{{slug}}'
+    page: '/page/{{slug}}',
+    post: '/post/{{file}}',
   }
 }
 

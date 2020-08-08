@@ -2,6 +2,10 @@
   export let site
 </script>
 
+<style lang="scss">
+  @import "../../sass/site-footer.scss";
+</style>
+
 <footer class="site-footer">
   <div class="wrapper">
     <p>

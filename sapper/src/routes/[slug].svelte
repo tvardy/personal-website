@@ -28,7 +28,7 @@
 
 <script>
   import { getPageTitle } from '../_utils'
-  import Markdown from '../components/Markdown.svelte'
+  import Page from '../components/Page.svelte'
 
   export let site = {}
   export let page = {}
@@ -38,6 +38,4 @@
   <title>{getPageTitle(site, page)}</title>
 </svelte:head>
 
-<h1>{page.title}</h1>
-
-<Markdown content={page.content} />
+<Page {page} />

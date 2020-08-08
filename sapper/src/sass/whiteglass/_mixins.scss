@@ -1,0 +1,7 @@
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@import "content-wrapper";

@@ -1,9 +1,9 @@
 ---
 title: Understanding the "git add" + "git commit" commands pair
-tag: [ git, vcs, IT metaphors ]
-image: 
+tags: [ git, vcs, IT metaphors ]
+image:
   unsplashId: 1480506132288-68f7705954bd
-  class: page-image--alpha page-image--grey
+  class: post-image--dark effect--alpha effect--grey
 ---
 Sooner or later all of my students step into learning [Git](//git-scm.com).
 It's a no-brainer; I can't really imagine a situation in which a person wanting
@@ -39,7 +39,7 @@ Git's official [documentation](https://git-scm.com/docs/git-commit#git-commit--a
 >  but new files you have not told Git about are not affected.
 
 Good for us. If we **changed** one or two files (or however many we like) and we'd like to
-add them **all** within one commit. 
+add them **all** within one commit.
 
 As long as we'd only want to commit changes made to the files that were previously already
 indexed by Git, we could go with the `-a` (or even `-am`) flag.
@@ -74,7 +74,7 @@ them to other ones.
 You're also capable of completely cancel your "shopping" (after checking how much
 the total cost would be). I can just leave the collected items and go out of the shop
 without consequence.
- 
+
 Well, that's exactly what the process of staging files is. And it's much less serious
 as the second step.
 
@@ -98,10 +98,10 @@ choose to commit e.g. files "x" and "z" together, and then the remaining "y" fil
 
 So it's like splitting your shopping into, for instance, private and corporate expenses.
 
-  
+
 ### Bonus: Buy now == git commit -am ;)
 
 As a bonus on our metaphorical view on Git commands let's get back to the "Short answer" section.
 
 Can you tell the similarities between clicking "Buy now" button on eBay and calling
-`git commit -am "commit message"` command, yourself? ;) 
+`git commit -am "commit message"` command, yourself? ;)

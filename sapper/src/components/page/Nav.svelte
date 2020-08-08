@@ -4,6 +4,10 @@
   export let pages
 </script>
 
+<style lang="scss">
+  @import "../../sass/site-header.scss";
+</style>
+
 <header class="site-header">
   <div class="wrapper">
 

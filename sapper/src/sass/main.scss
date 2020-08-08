@@ -1,1 +1,10 @@
-@import "my_whiteglass";
+@import "whiteglass/variables";
+@import "my_whiteglass/variables";
+
+@import "whiteglass/mixins";
+@import "my_whiteglass/fluid-type";
+
+@import "whiteglass/base";
+//@import "whiteglass/syntax-highlighting";
+
+@import "my_whiteglass/base";

@@ -1,0 +1,78 @@
+.post-image {
+  $oversize: 8rem;
+  $image-max-width: $content-width + $oversize;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: $grey-color-light;
+
+  box-shadow: inset 0 0 0.5rem rgba($brand-color, 0.66);
+
+  margin: $spacing-unit 0;
+  overflow: hidden;
+  width: $image-max-width;
+  height: $content-width / 2;
+
+  position: relative;
+  left: -($oversize / 2 + $spacing-unit);
+
+  @include media-query($on-laptop) {
+    left: -($oversize / 2 + $spacing-unit / 2);
+  }
+
+  @include media-query($image-max-width) {
+    max-width: 100%;
+    height: 20rem;
+    left: 0;
+  }
+
+  @include media-query($on-palm) {
+    max-width: 100%;
+    height: 16rem;
+  }
+
+  &::after {
+    content: attr(data-source);
+    position: absolute;
+    font-size: 0.77em;
+    right: 0.33rem;
+    bottom: 0;
+  }
+
+  &--dark::after {
+    color: $background-color;
+  }
+
+  $alpha: "opacity(0.77)";
+  $desaturate: "grayscale(66%)";
+  $grey: "grayscale(88%)";
+
+  &.effect--alpha {
+    filter: #{$alpha}
+  }
+
+  &.effect--desaturate {
+    filter: #{$desaturate}
+  }
+
+  &.effect--grey {
+    filter: #{$grey}
+  }
+
+  &.effect--alpha.effect--desaturate {
+    filter: #{$alpha} #{$desaturate};
+  }
+
+  &.effect--alpha.effect--grey {
+    filter: #{$alpha} #{$grey};
+  }
+
+  &.effect--desaturate.effect--grey {
+    filter: #{$desaturate} #{$grey};
+  }
+
+  &.effect--alpha.effect--desaturate.effect--grey {
+    filter: #{$alpha} #{$desaturate} #{$grey};
+  }
+}
