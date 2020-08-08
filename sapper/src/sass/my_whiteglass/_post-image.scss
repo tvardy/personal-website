@@ -10,7 +10,6 @@
   box-shadow: inset 0 0 0.5rem rgba($brand-color, 0.66);
 
   margin: $spacing-unit 0;
-  overflow: hidden;
   width: $image-max-width;
   height: $content-width / 2;
 
@@ -32,17 +31,13 @@
     height: 16rem;
   }
 
-  &::after {
-    content: attr(data-source);
+  &-attribution {
     position: absolute;
     font-size: 0.77em;
-    right: 0.33rem;
-    bottom: 0;
+    right: 0;
+    bottom: -1.75em;
   }
 
-  &--dark::after {
-    color: $background-color;
-  }
 
   $alpha: "opacity(0.77)";
   $desaturate: "grayscale(66%)";

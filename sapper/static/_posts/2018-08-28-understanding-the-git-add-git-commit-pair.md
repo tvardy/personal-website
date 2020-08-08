@@ -2,8 +2,8 @@
 title: Understanding the "git add" + "git commit" commands pair
 tags: [ git, vcs, IT metaphors ]
 image:
-  unsplashId: 1480506132288-68f7705954bd
-  class: post-image--dark effect--alpha effect--grey
+  source: unsplash
+  id: UWupz6Lxz3A
 ---
 Sooner or later all of my students step into learning [Git](//git-scm.com).
 It's a no-brainer; I can't really imagine a situation in which a person wanting

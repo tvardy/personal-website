@@ -2,7 +2,8 @@
 title: Why we should encourage women to work in programming
 tags: [ women, IT trends ]
 image:
-  unsplashId: 1531539134685-27d854339120
+  source: unsplash
+  id: LVooQvKjLjw
   crop: edges,bottom,left
   class: effect--desaturate
 ---
