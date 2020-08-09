@@ -16,8 +16,7 @@ export default class APIService {
 
   put () {}
 
-  delete (url) {
-  }
+  delete (url) {}
 }
 
 function _onError (err, message = '') {

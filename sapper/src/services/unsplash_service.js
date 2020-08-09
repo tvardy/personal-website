@@ -1,4 +1,5 @@
 import APIService from "./api_service"
+import { memoize } from "../_utils"
 
 require('dotenv').config()
 
@@ -9,10 +10,11 @@ class UnsplashService {
       'Accept-Version': 'v1',
       'Authorization': `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`
     }
+    this.get = memoize(this.get.bind(this))
   }
 
   async get(id) {
-    return await this.api.get(`photos/${id}`)
+    return this.api.get(`photos/${id}`)
   }
 }
 

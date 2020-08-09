@@ -1,3 +1,5 @@
+import fast_memoize from 'fast-memoize'
+
 export function getPageTitle(site, page = {}) {
   return `${page.title ? `${page.title} | ` : ''}${site.title}`
 }
@@ -34,3 +36,5 @@ export function sendJSON(res, data, status = 200) {
 
   res.end(JSON.stringify(data))
 }
+
+export const memoize = fast_memoize
