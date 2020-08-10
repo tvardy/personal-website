@@ -3,8 +3,10 @@
 
   export async function preload({ params }, { site }) {
     const _self = this
-    const { page } = params
     const { api } = site
+    let { page } = params
+
+    page = parseInt(page)
 
     const res = await this.fetch(api._root + interpolateString(api.posts, { page }))
 
@@ -35,7 +37,8 @@
 </script>
 
 <svelte:head>
-  <title>{getPageTitle(site)}</title>
+  <title>{getPageTitle(site, { title: `blog archive | page ${page}`})}</title>
+  <link rel="canonical" href="{site.url}/{page === 1 ? '' : `blog/${page}`}">
 </svelte:head>
 
 <pre><code>{JSON.stringify(posts, null, 2)}</code></pre>
