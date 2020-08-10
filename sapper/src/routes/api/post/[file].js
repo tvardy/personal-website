@@ -23,7 +23,7 @@ export async function get(req, res) {
         on
         <a href="https://unsplash.com/${utm}">Unsplash</a>`
       } catch(err) {
-        debugger
+        console.error('!!!', err)
       }
     }
 

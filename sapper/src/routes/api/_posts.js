@@ -10,9 +10,10 @@ import { reduceToObjByKey } from '../../_utils'
 
 const readFile = pify(fs.readFile)
 
-let _posts;
+let _posts
+let _keys
 
-export async function getPosts() {
+export async function getPosts({ page = 1, limit = site.posts.limit } = {}) {
   if (!_posts) {
     const files = await fg(paths.static + paths.posts)
     const data = await Promise.all(
@@ -24,12 +25,13 @@ export async function getPosts() {
     _posts = files
       .map(_parsePost)
       .reduce(reduceToObjByKey('file'), {})
+    _keys = Object.keys(_posts)
 
-    return _posts
+    return _paged(page, limit)
 
     function _parsePost(file, i) {
       const basename = path.basename(file)
-      const [, date, slug] = basename.match(/^(\d{4}-\d{2}-\d{2})-([a-z\-]+)\.\w{2,3}$/)
+      const [, date, slug] = basename.match(/^(\d{4}-\d{2}-\d{2})-([\w-]+)\.\w{2,3}$/)
       const {attributes, body} = matter(data[i])
       const excerpt = body.split(site.excerpt_separator)[0]
 
@@ -44,7 +46,7 @@ export async function getPosts() {
     }
   }
 
-  return Promise.resolve(_posts)
+  return Promise.resolve(_paged(page, limit))
 }
 
 export async function getPost(file, short) {
@@ -62,5 +64,16 @@ export async function getPost(file, short) {
       status: 404,
       message: 'resource not found'
     }
+  }
+}
+
+function _paged(page, limit) {
+  const start = (page - 1) * limit
+  const end = start + limit
+  const last = end >= _keys.length
+
+  return {
+    last,
+    posts: _keys.slice(start, end).map(key => _posts[key])
   }
 }
