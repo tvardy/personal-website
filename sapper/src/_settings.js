@@ -20,6 +20,7 @@ export const site = {
     _root: 'api',
     pages: '/pages',
     page: '/page/{{slug}}',
+    posts: '/posts?page={{page}}',
     post: '/post/{{file}}',
   }
 }

@@ -6,18 +6,14 @@
     const { slug } = params
     const { api } = site
 
-    if (site.nav.includes(slug)) {
-      const res = await this.fetch(api._root + interpolateString(api.page, { slug }))
+    const res = await this.fetch(api._root + interpolateString(api.page, { slug }))
 
-      if (res.status === 200) {
-        const page = await res.json()
+    if (res.status === 200) {
+      const page = await res.json()
 
-        return { site, page }
-      } else {
-        _onError(res, { message: res.statusText })
-      }
+      return { site, page }
     } else {
-      _onError({ status: 404 }, { message: 'Not found' })
+      _onError(res, { message: res.statusText || res.message })
     }
 
     function _onError({ status }, { message }) {

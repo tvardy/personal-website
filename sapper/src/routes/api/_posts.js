@@ -23,6 +23,7 @@ export async function getPosts({ page = 1, limit = site.posts.limit } = {}) {
     )
 
     _posts = files
+      .reverse()
       .map(_parsePost)
       .reduce(reduceToObjByKey('file'), {})
     _keys = Object.keys(_posts)
