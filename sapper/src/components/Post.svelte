@@ -2,8 +2,8 @@
   import PostImage from './post/Image.svelte'
   import TagLinks from "./post/TagLinks.svelte"
   import Markdown from './Markdown.svelte'
+  import InTextSeparator from "./InTextSeparator.svelte";
 
-  export let site
   export let post
 </script>
 
@@ -19,12 +19,12 @@
     <p class="post-meta">
       <time datetime="{post.date}" itemprop="datePublished">{post.date}</time>
       {#if post.author}
-      {site.in_text_separator}
-      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">{post.author}</span>
-      </span>
+        <InTextSeparator />
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">{post.author}</span>
+        </span>
       {/if}
-      <TagLinks {site} tags={post.tags} />
+      <TagLinks tags={post.tags} />
     </p>
   </header>
 

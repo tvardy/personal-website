@@ -26,7 +26,7 @@
   import { getPageTitle } from '../_utils'
   import Page from '../components/Page.svelte'
 
-  export let site = {}
+  export let site
   export let page = {}
 </script>
 

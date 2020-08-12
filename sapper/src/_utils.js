@@ -37,4 +37,8 @@ export function sendJSON(res, data, status = 200) {
   res.end(JSON.stringify(data))
 }
 
+export function getPermalink({ date, slug }) {
+  return `post/${date}-${slug}`
+}
+
 export const memoize = fast_memoize

@@ -22,8 +22,9 @@
 </script>
 
 <script>
-  import { getPageTitle } from '../_utils'
+  import {getPageTitle} from '../_utils'
 
+  import ArchiveList from "../components/ArchiveList.svelte";
   import ArchivePagination from '../components/ArchivePagination.svelte'
 
   export let site
@@ -35,6 +36,6 @@
   <title>{getPageTitle(site)}</title>
 </svelte:head>
 
-<pre><code>{JSON.stringify(posts, null, 2)}</code></pre>
+<ArchiveList {posts} />
 
 <ArchivePagination page={1} {last} />

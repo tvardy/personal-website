@@ -6,7 +6,6 @@ export const site = {
   lang: 'en',
   timezone: 'UTC',
   excerpt_separator: '<!-- more -->',
-  in_text_separator: '<span class="in_text_separator">•</span>',
   google_analytics: 'UA-125050706-1',
   posts: {
     limit: 3

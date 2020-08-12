@@ -26,7 +26,7 @@
   import {getPageTitle} from '../../_utils'
   import Post from "../../components/Post.svelte";
 
-  export let site = {}
+  export let site
   export let post = {}
 </script>
 
@@ -34,4 +34,4 @@
   <title>{getPageTitle(site, post)}</title>
 </svelte:head>
 
-<Post {site} {post} />
+<Post {post} />
