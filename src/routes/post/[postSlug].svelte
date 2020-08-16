@@ -2,7 +2,7 @@
   import { interpolateString } from '../../_utils'
 
   export async function preload({ params }, { site }) {
-    const _self = this
+    const _error = this.error
     const { postSlug } = params
     const { api } = site
 
@@ -13,20 +13,24 @@
 
       return { site, post }
     } else {
-      _onError(res, { message: res.statusText })
+      _onError(res, { message: res.statusText || res.message })
     }
 
     function _onError({ status }, { message }) {
-      _self.error(status, message)
+      _error(status, message)
     }
   }
 </script>
 
 <script>
-  import {getPageTitle} from '../../_utils'
-  import Post from "../../components/Post.svelte";
+  // utils
+  import { getPageTitle } from '../../_utils'
 
-  export let site
+  // components
+  import Post from '../../components/Post.svelte'
+
+  // props
+  export let site = {}
   export let post = {}
 </script>
 

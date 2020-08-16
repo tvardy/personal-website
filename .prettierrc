@@ -1,0 +1,14 @@
+{
+  "printWidth": 88,
+  "overrides": [
+    {
+      "files": ["*.js", "*.svelte"],
+      "options": {
+        "singleQuote": true,
+        "semi": false
+      }
+    }
+  ],
+  "svelteBracketNewLine": true,
+  "svelteAllowShorthand": true
+}

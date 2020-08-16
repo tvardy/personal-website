@@ -4,13 +4,15 @@
 </script>
 
 <style lang="scss">
-  @import "../../sass/page";
-  @import "../../sass/post";
+  @import '../../sass/page';
+  @import '../../sass/post';
 </style>
 
-{#if segment}<!-- {segment} -->{/if}
+{#if segment}
+  <!-- {segment} -->
+{/if}
 
-<main class="{className}" aria-label="Content">
+<main class={className} aria-label="Content">
   <div class="wrapper">
     <slot />
   </div>

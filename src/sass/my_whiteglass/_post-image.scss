@@ -38,21 +38,20 @@
     bottom: -1.75em;
   }
 
-
   $alpha: "opacity(0.77)";
   $desaturate: "grayscale(66%)";
   $grey: "grayscale(88%)";
 
   &.effect--alpha {
-    filter: #{$alpha}
+    filter: #{$alpha};
   }
 
   &.effect--desaturate {
-    filter: #{$desaturate}
+    filter: #{$desaturate};
   }
 
   &.effect--grey {
-    filter: #{$grey}
+    filter: #{$grey};
   }
 
   &.effect--alpha.effect--desaturate {

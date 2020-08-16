@@ -6,7 +6,7 @@ export async function get(req, res) {
     const r = await UnsplashService.get(req.params.id)
     const photo = JSON.parse(r.body)
     sendJSON(res, photo)
-  } catch(err) {
+  } catch (err) {
     sendJSON(res, { message: err.message }, err.status)
   }
 }

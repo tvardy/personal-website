@@ -4,7 +4,7 @@
 </script>
 
 <style lang="scss">
-  @import "../sass/post-pagination";
+  @import '../sass/post-pagination';
 </style>
 
 <div class="pagination">
@@ -15,4 +15,3 @@
     <a class="next" href="/blog/{page - 1}">Newer &raquo;</a>
   {/if}
 </div>
-

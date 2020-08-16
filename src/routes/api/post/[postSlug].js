@@ -12,7 +12,7 @@ export async function get(req, res) {
   try {
     const data = await getPost(postSlug, short)
 
-    if(data.image) {
+    if (data.image) {
       try {
         const r = await UnsplashService.get(data.image.id)
         const photo = JSON.parse(r.body)
@@ -22,13 +22,13 @@ export async function get(req, res) {
         <a href="${photo.user.links.self}${utm}">${photo.user.name}</a>
         on
         <a href="https://unsplash.com/${utm}">Unsplash</a>`
-      } catch(err) {
+      } catch (err) {
         console.error('!!!', err)
       }
     }
 
     sendJSON(res, data)
-  } catch({ status, message }) {
+  } catch ({ status, message }) {
     sendJSON(res, { message }, status)
   }
 }

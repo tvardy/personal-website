@@ -1,15 +1,25 @@
 @mixin content-wrapper() {
-  :global(h1) { @include fluid-type(($on-palm / 2), $on-laptop, 2rem, 2.4rem); }
-  :global(h2) { @include fluid-type(($on-palm / 2), $on-laptop, 1.7rem, 2.1rem); }
-  :global(h3) { @include fluid-type(($on-palm / 2), $on-laptop, 1.4rem, 1.8rem); }
-  :global(h4) { @include fluid-type(($on-palm / 2), $on-laptop, 1.2rem, 1.5rem); }
-  :global(h5) { @include fluid-type(($on-palm / 2), $on-laptop, 1.1rem, 1.3rem); }
+  :global(h1) {
+    @include fluid-type(($on-palm / 2), $on-laptop, 2rem, 2.4rem);
+  }
+  :global(h2) {
+    @include fluid-type(($on-palm / 2), $on-laptop, 1.7rem, 2.1rem);
+  }
+  :global(h3) {
+    @include fluid-type(($on-palm / 2), $on-laptop, 1.4rem, 1.8rem);
+  }
+  :global(h4) {
+    @include fluid-type(($on-palm / 2), $on-laptop, 1.2rem, 1.5rem);
+  }
+  :global(h5) {
+    @include fluid-type(($on-palm / 2), $on-laptop, 1.1rem, 1.3rem);
+  }
   :global(h6) {
-    @include fluid-type(($on-palm / 2), $on-laptop, .9rem, 1.1rem);
+    @include fluid-type(($on-palm / 2), $on-laptop, 0.9rem, 1.1rem);
     font-weight: bold;
   }
   :global(p) {
-    @include fluid-type(($on-palm / 2), $on-laptop, .9rem, 1.1rem);
+    @include fluid-type(($on-palm / 2), $on-laptop, 0.9rem, 1.1rem);
     text-align: justify;
   }
 }

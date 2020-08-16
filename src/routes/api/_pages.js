@@ -10,18 +10,18 @@ import { reduceToObjByKey } from '../../_utils'
 
 const readFile = pify(fs.readFile)
 
-let _pages;
-let _navData;
+let _pages
+let _navData
 
 export async function getPages() {
   if (!_pages) {
     const files = await fg(paths.static + paths.pages)
     const data = await Promise.all(
-      files.map(file => readFile(path.resolve(file), 'utf8'))
+      files.map((file) => readFile(path.resolve(file), 'utf8'))
     )
 
     _pages = data
-      .map(str => matter(str))
+      .map((str) => matter(str))
       .reduce(reduceToObjByKey('attributes.slug'), {})
 
     return _pages
@@ -31,10 +31,10 @@ export async function getPages() {
 }
 
 export async function getNavData() {
-  if(!_navData) {
-    const all =  await getPages()
+  if (!_navData) {
+    const all = await getPages()
 
-    _navData = site.nav.map(slug => all[slug].attributes)
+    _navData = site.nav.map((slug) => all[slug].attributes)
 
     return _navData
   }
@@ -49,12 +49,12 @@ export async function getPage(slug) {
   if (page) {
     return {
       title: page.attributes.title,
-      content: page.body
+      content: page.body,
     }
   } else {
     throw {
       status: 404,
-      message: 'resource not found'
+      message: 'resource not found',
     }
   }
 }

@@ -2,7 +2,7 @@
   import { interpolateString } from '../_utils'
 
   export async function preload(_, { site }) {
-    const _self = this
+    const _error = this.error
     const { api } = site
 
     const res = await this.fetch(api._root + interpolateString(api.posts, { page: 1 }))
@@ -16,20 +16,23 @@
     }
 
     function _onError({ status }, { message }) {
-      _self.error(status, message)
+      _error(status, message)
     }
   }
 </script>
 
 <script>
-  import {getPageTitle} from '../_utils'
+  // utils
+  import { getPageTitle } from '../_utils'
 
-  import ArchiveList from "../components/ArchiveList.svelte";
+  // components
+  import ArchiveList from '../components/ArchiveList.svelte'
   import ArchivePagination from '../components/ArchivePagination.svelte'
 
-  export let site
-  export let posts
-  export let last
+  // props
+  export let site = {}
+  export let posts = []
+  export let last = true
 </script>
 
 <svelte:head>

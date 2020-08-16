@@ -3,5 +3,7 @@
 }
 
 .post-header {
-  :global(h1) { @include fluid-type(($on-palm / 2), $on-laptop, 2.2rem, 2.6rem); }
+  :global(h1) {
+    @include fluid-type(($on-palm / 2), $on-laptop, 2.2rem, 2.6rem);
+  }
 }

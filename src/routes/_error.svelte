@@ -1,18 +1,22 @@
 <script>
+  // constants
   import { errors } from '../_settings'
+
+  // utils
   import { getPageTitle } from '../_utils'
 
-	export let status
-	export let error
+  // props
+  export let status
+  export let error
 
-	const dev = process.env.NODE_ENV === 'development'
-	const page = {
-	    title: `Error ${status}`
+  const dev = process.env.NODE_ENV === 'development'
+  const page = {
+    title: `Error ${status}`,
   }
 </script>
 
 <svelte:head>
-	<title>{getPageTitle(page)}</title>
+  <title>{getPageTitle(page)}</title>
 </svelte:head>
 
 <h1>{page.title}</h1>
@@ -28,5 +32,7 @@
 {/if}
 
 {#if dev && error.stack}
-	<pre>{error.stack}</pre>
+  <pre>
+    <code lang="plaintext">{error.stack}</code>
+  </pre>
 {/if}

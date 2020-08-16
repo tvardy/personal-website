@@ -13,19 +13,20 @@ const readFile = pify(fs.readFile)
 let _posts
 let _keys
 
-export async function getPosts({ page = 1, limit = site.posts.limit, short = true } = {}) {
+export async function getPosts({
+  page = 1,
+  limit = site.posts.limit,
+  short = true,
+} = {}) {
   if (!_posts) {
     const files = await fg(paths.static + paths.posts)
     const data = await Promise.all(
-      files.map(file => {
+      files.map((file) => {
         return readFile(path.resolve(file), 'utf8')
       })
     )
 
-    _posts = files
-      .map(_parsePost)
-      .reverse()
-      .reduce(reduceToObjByKey('file'), {})
+    _posts = files.map(_parsePost).reverse().reduce(reduceToObjByKey('file'), {})
     _keys = Object.keys(_posts)
 
     return _paged(page, limit, short)
@@ -33,7 +34,7 @@ export async function getPosts({ page = 1, limit = site.posts.limit, short = tru
     function _parsePost(file, i) {
       const basename = path.basename(file)
       const [, date, slug] = basename.match(/^(\d{4}-\d{2}-\d{2})-([\w-]+)\.\w{2,3}$/)
-      const {attributes, body} = matter(data[i])
+      const { attributes, body } = matter(data[i])
       const excerpt = body.split(site.excerpt_separator)[0]
 
       return {
@@ -66,7 +67,7 @@ export async function getPost(key, short) {
   } else {
     throw {
       status: 404,
-      message: 'resource not found'
+      message: 'resource not found',
     }
   }
 }
@@ -78,7 +79,7 @@ function _paged(page, limit, short) {
 
   return {
     last,
-    posts: _keys.slice(start, end).map(key => {
+    posts: _keys.slice(start, end).map((key) => {
       let post = { ..._posts[key] }
 
       if (short) {
@@ -86,6 +87,6 @@ function _paged(page, limit, short) {
       }
 
       return post
-    })
+    }),
   }
 }

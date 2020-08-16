@@ -1,8 +1,8 @@
 <script>
   import PostImage from './post/Image.svelte'
-  import TagLinks from "./post/TagLinks.svelte"
+  import TagLinks from './post/TagLinks.svelte'
   import Markdown from './Markdown.svelte'
-  import InTextSeparator from "./InTextSeparator.svelte";
+  import InTextSeparator from './InTextSeparator.svelte'
 
   export let post
 </script>
@@ -17,7 +17,7 @@
     <h1 class="post-title" itemprop="name headline">{post.title}</h1>
 
     <p class="post-meta">
-      <time datetime="{post.date}" itemprop="datePublished">{post.date}</time>
+      <time datetime={post.date} itemprop="datePublished">{post.date}</time>
       {#if post.author}
         <InTextSeparator />
         <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -33,4 +33,3 @@
   </div>
 
 </article>
-

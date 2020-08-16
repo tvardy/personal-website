@@ -1,24 +1,27 @@
 import got from 'got'
 
 export default class APIService {
-  constructor (url) {
+  constructor(url) {
     this.options = {
       prefixUrl: url,
-      retry: 0
+      retry: 0,
     }
   }
 
-  get (url, errMsg) {
-    return got(url, Object.assign({}, this.options, { headers: this.headers })).catch(err => _onError(err, errMsg))
+  get(url, errMsg) {
+    return got(
+      url,
+      Object.assign({}, this.options, { headers: this.headers })
+    ).catch((err) => _onError(err, errMsg))
   }
 
-  post () {}
+  post() {}
 
-  put () {}
+  put() {}
 
-  delete (url) {}
+  delete(url) {}
 }
 
-function _onError (err, message = '') {
+function _onError(err, message = '') {
   return Promise.reject(message || err.message)
 }
