@@ -4,7 +4,7 @@
   export let tags = []
 </script>
 
-{#if tags.length}
+{#if Array.isArray(tags) && tags.length}
   <InTextSeparator />
   {#each tags as tag, index}
     <a href="tags/{tag}">{tag}</a>{#if index + 1 < tags.length},&nbsp;{/if}

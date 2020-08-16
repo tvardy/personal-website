@@ -27,5 +27,7 @@
 </style>
 
 <div class="post-image {params.class}" style="background-image: url({url})">
+  {#if params.attribution}
   <span class="post-image-attribution">{@html params.attribution}</span>
+  {/if}
 </div>

@@ -13,7 +13,6 @@
     if (res.status === 200) {
       const data = await res.json()
 
-
       return { site, ...data, page }
     } else {
       _onError(res, { message: res.statusText || res.message })

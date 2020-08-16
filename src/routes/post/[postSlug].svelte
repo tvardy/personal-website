@@ -3,10 +3,10 @@
 
   export async function preload({ params }, { site }) {
     const _self = this
-    const { file } = params
+    const { postSlug } = params
     const { api } = site
 
-    const res = await this.fetch(api._root + interpolateString(api.post, { file }))
+    const res = await this.fetch(api._root + interpolateString(api.post, { postSlug }))
 
     if (res.status === 200) {
       const post = await res.json()

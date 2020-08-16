@@ -6,11 +6,11 @@ import { sendJSON } from '../../../_utils'
 const utm = '?utm_source=personal-website&utm_medium=referral'
 
 export async function get(req, res) {
-  const { file } = req.params
+  const { postSlug } = req.params
   const short = req.query.short !== undefined
 
   try {
-    const data = await getPost(file, short)
+    const data = await getPost(postSlug, short)
 
     if(data.image) {
       try {

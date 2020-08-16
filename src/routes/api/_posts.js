@@ -50,12 +50,12 @@ export async function getPosts({ page = 1, limit = site.posts.limit, short = tru
   return Promise.resolve(_paged(page, limit, short))
 }
 
-export async function getPost(file, short) {
+export async function getPost(key, short) {
   if (!_posts) {
     await getPosts()
   }
 
-  const post = _posts[file]
+  const post = { ..._posts[key] }
 
   if (post) {
     if (short) {
@@ -79,7 +79,7 @@ function _paged(page, limit, short) {
   return {
     last,
     posts: _keys.slice(start, end).map(key => {
-      let post = _posts[key]
+      let post = { ..._posts[key] }
 
       if (short) {
         delete post.body
