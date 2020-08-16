@@ -37,10 +37,23 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
 <html>
   <head>
   </head>
-  <body>
-    <p>Hello, World!</p>
+  <body class="test" data-foo="bar">
+    <h1 id="heading">Hello, World!</h1>
+    <!-- comment -->
   </body>
 </html>
+```
+
+``` js
+const obj = { foo: 'bar' };
+
+function test (...args) {
+    const _a = (x) => x * 2;
+    // comment
+    return args.map(_a);
+}
+
+console.log(test(1, 2, 3));
 ```
 
 
