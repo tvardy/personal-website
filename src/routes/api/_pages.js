@@ -32,9 +32,11 @@ export async function getPages() {
 
 export async function getNavData() {
   if (!_navData) {
-    const all = await getPages()
+    if (!_pages) {
+      await getPages()
+    }
 
-    _navData = site.nav.map((slug) => all[slug].attributes)
+    _navData = site.nav.map((slug) => _pages[slug].attributes)
 
     return _navData
   }
@@ -43,8 +45,11 @@ export async function getNavData() {
 }
 
 export async function getPage(slug) {
-  const all = await getPages()
-  const page = all[slug]
+  if (!_pages) {
+    await getPages()
+  }
+
+  const page = _pages[slug]
 
   if (page) {
     return {

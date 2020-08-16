@@ -40,4 +40,20 @@ export function getPermalink({ date, slug }) {
   return `post/${date}-${slug}`
 }
 
+export async function getDataOrRespondWithError(context, url) {
+  const _error = context.error
+
+  const res = await context.fetch(url)
+
+  if (res.status === 200) {
+    return res.json()
+  } else {
+    _onError(res, { message: res.statusText || res.message })
+  }
+
+  function _onError({ status }, { message }) {
+    _error(status, message)
+  }
+}
+
 export const memoize = fast_memoize

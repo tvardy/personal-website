@@ -32,7 +32,5 @@
 {/if}
 
 {#if dev && error.stack}
-  <pre>
-    <code lang="plaintext">{error.stack}</code>
-  </pre>
+  <pre>{error.stack}</pre>
 {/if}

@@ -1,23 +1,14 @@
 <script context="module">
-  import { interpolateString } from '../_utils'
+  import { interpolateString, getDataOrRespondWithError } from '../_utils'
 
   export async function preload(_, { site }) {
-    const _error = this.error
     const { api } = site
 
-    const res = await this.fetch(api._root + interpolateString(api.posts, { page: 1 }))
+    const url = api._root + interpolateString(api.posts, { page: 1 })
 
-    if (res.status === 200) {
-      const data = await res.json()
+    const data = await getDataOrRespondWithError(this, url)
 
-      return { site, ...data }
-    } else {
-      _onError(res, { message: res.statusText || res.message })
-    }
-
-    function _onError({ status }, { message }) {
-      _error(status, message)
-    }
+    return { site, ...data }
   }
 </script>
 

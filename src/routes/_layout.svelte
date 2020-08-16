@@ -1,12 +1,15 @@
 <script context="module">
+  import { getDataOrRespondWithError } from '../_utils'
+
   export async function preload({ path }, { site }) {
     const { api } = site
+    const url = api._root + api.pages
+
     const params = {
       className: path.match('/post/') ? 'post-content' : 'page-content',
     }
 
-    const res = await this.fetch(api._root + api.pages)
-    const pages = await res.json()
+    const pages = await getDataOrRespondWithError(this, url)
 
     return { site, pages, params }
   }
