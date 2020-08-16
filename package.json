@@ -4,8 +4,8 @@
   "version": "0.0.2",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "build": "sapper build",
+    "export": "sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
@@ -19,10 +19,11 @@
     "fast-memoize": "2.5.2",
     "front-matter": "4.0.2",
     "got": "11.5.2",
+    "highlight.js": "10.1.2",
     "marked": "1.1.1",
     "pify": "5.0.0",
     "polka": "1.0.0-next.11",
-    "sirv": "1.0.5"
+    "sirv": "1.0.6"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",
@@ -33,7 +34,7 @@
     "autoprefixer": "9.8.6",
     "node-sass": "4.14.1",
     "npm-run-all": "4.1.5",
-    "rollup": "2.23.1",
+    "rollup": "2.26.0",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "4.0.0",
@@ -43,7 +44,7 @@
     "rollup-plugin-terser": "7.0.0",
     "sapper": "0.28.0",
     "svelte": "3.24.1",
-    "svelte-check": "1.0.11",
-    "svelte-preprocess": "4.0.10"
+    "svelte-check": "1.0.16",
+    "svelte-preprocess": "4.0.12"
   }
 }
