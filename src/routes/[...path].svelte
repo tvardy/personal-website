@@ -1,9 +1,11 @@
 <script context="module">
-  import { interpolateString, getDataOrRespondWithError } from '../_utils'
+  import { interpolateString, getDataOrRespondWithError, arrayToURL } from '../_utils'
 
   export async function preload({ params }, { site }) {
-    const { pageSlug } = params
+    const { path } = params
     const { api } = site
+
+    const pageSlug = arrayToURL(path)
 
     const url = api._root + interpolateString(api.page, { pageSlug })
 

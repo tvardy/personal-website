@@ -1,3 +1,4 @@
+import path from 'path'
 import fast_memoize from 'fast-memoize'
 
 export function getPageTitle(site, page = {}) {
@@ -38,6 +39,10 @@ export function sendJSON(res, data, status = 200) {
 
 export function getPermalink({ date, slug }) {
   return `post/${date}-${slug}`
+}
+
+export function arrayToURL(all) {
+  return encodeURI(path.join(...all))
 }
 
 export async function getDataOrRespondWithError(context, url) {
