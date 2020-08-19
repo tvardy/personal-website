@@ -2,6 +2,7 @@ import got from 'got'
 
 export default class APIService {
   constructor(url) {
+    this.headers = null
     this.options = {
       prefixUrl: url,
       retry: 0,
@@ -9,17 +10,20 @@ export default class APIService {
   }
 
   get(url, errMsg) {
-    return got(
-      url,
-      Object.assign({}, this.options, { headers: this.headers })
-    ).catch((err) => _onError(err, errMsg))
+    const _options = Object.assign(
+      {},
+      !!this.headers ? { headers: this.headers } : {},
+      this.options
+    )
+
+    return got(url, _options).catch((err) => _onError(err, errMsg))
   }
 
   post() {}
 
   put() {}
 
-  delete(url) {}
+  delete() {}
 }
 
 function _onError(err, message = '') {
