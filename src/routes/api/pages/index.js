@@ -1,4 +1,4 @@
-import { getNavData } from '../_pages'
+import { getNavData } from '../../../services/pages_service'
 import { sendJSON } from '../../../_utils'
 
 export async function get(req, res) {

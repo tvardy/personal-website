@@ -1,6 +1,6 @@
 import UnsplashService from '../../../services/unsplash_service'
 
-import { getPost } from '../_posts'
+import { getPost } from '../../../services/posts_service'
 import { sendJSON } from '../../../_utils'
 
 const utm = '?utm_source=personal-website&utm_medium=referral'

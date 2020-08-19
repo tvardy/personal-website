@@ -5,8 +5,8 @@ import path from 'path'
 import matter from 'front-matter'
 import pify from 'pify'
 
-import { paths, site } from '../../_settings'
-import { reduceToObjByKey } from '../../_utils'
+import { paths, site } from '../_settings'
+import { reduceToObjByKey } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
