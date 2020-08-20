@@ -1,4 +1,4 @@
-import fg from 'fast-glob'
+import fastglob from 'fast-glob'
 import fs from 'fs'
 import path from 'path'
 
@@ -10,56 +10,43 @@ import { reduceToObjByKey } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
-let _pages
-let _navData
-
-export async function getPages() {
-  if (!_pages) {
-    const files = await fg(paths.static + paths.pages)
+class PostsService {
+  async preCache() {
+    const files = await fastglob(paths.static + paths.pages)
     const data = await Promise.all(
       files.map((file) => readFile(path.resolve(file), 'utf8'))
     )
 
-    _pages = data
+    this._pages = data
       .map((str) => matter(str))
       .reduce(reduceToObjByKey('attributes.slug'), {})
 
-    return _pages
+    this._navData = site.nav.map((slug) => this._pages[slug].attributes)
   }
 
-  return Promise.resolve(_pages)
-}
+  getPage(slug) {
+    const page = this._pages[slug]
 
-export async function getNavData() {
-  if (!_navData) {
-    if (!_pages) {
-      await getPages()
-    }
-
-    _navData = site.nav.map((slug) => _pages[slug].attributes)
-
-    return _navData
-  }
-
-  return Promise.resolve(_navData)
-}
-
-export async function getPage(slug) {
-  if (!_pages) {
-    await getPages()
-  }
-
-  const page = _pages[slug]
-
-  if (page) {
-    return {
-      title: page.attributes.title,
-      content: page.body,
-    }
-  } else {
-    throw {
-      status: 404,
-      message: 'resource not found',
+    if (page) {
+      return {
+        title: page.attributes.title,
+        content: page.body,
+      }
+    } else {
+      throw {
+        status: 404,
+        message: 'resource not found',
+      }
     }
   }
+
+  get navData() {
+    return this._navData
+  }
 }
+
+const instance = new PostsService()
+
+instance.preCache()
+
+export default instance
