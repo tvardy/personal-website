@@ -1,7 +1,7 @@
-import fg from 'fast-glob'
 import fs from 'fs'
 import path from 'path'
 
+import fastglob from 'fast-glob'
 import matter from 'front-matter'
 import pify from 'pify'
 
@@ -10,26 +10,17 @@ import { reduceToObjByKey } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
-let _posts
-let _keys
-
-export async function getPosts({
-  page = 1,
-  limit = site.posts.limit,
-  short = true,
-} = {}) {
-  if (!_posts) {
-    const files = await fg(paths.static + paths.posts)
+class PostsService {
+  async preCache() {
+    const files = await fastglob(paths.static + paths.posts)
     const data = await Promise.all(
       files.map((file) => {
         return readFile(path.resolve(file), 'utf8')
       })
     )
 
-    _posts = files.map(_parsePost).reverse().reduce(reduceToObjByKey('file'), {})
-    _keys = Object.keys(_posts)
-
-    return _paged(page, limit, short)
+    this._posts = files.map(_parsePost).reverse().reduce(reduceToObjByKey('file'), {})
+    this._keys = Object.keys(this._posts)
 
     function _parsePost(file, i) {
       const basename = path.basename(file)
@@ -48,45 +39,45 @@ export async function getPosts({
     }
   }
 
-  return Promise.resolve(_paged(page, limit, short))
-}
-
-export async function getPost(key, short) {
-  if (!_posts) {
-    await getPosts()
+  async getPosts({ page = 1, limit = site.posts.limit, short = true } = {}) {
+    return Promise.resolve(this._paged(page, limit, short))
   }
 
-  const post = { ..._posts[key] }
+  _paged(page, limit, short) {
+    const start = (page - 1) * limit
+    const end = start + limit
+    const last = end >= this._keys.length
 
-  if (post) {
-    if (short) {
-      delete post.body
-    }
-
-    return post
-  } else {
-    throw {
-      status: 404,
-      message: 'resource not found',
+    return {
+      last,
+      posts: this._keys.slice(start, end).map((key) => this._post(key, short)),
     }
   }
-}
 
-function _paged(page, limit, short) {
-  const start = (page - 1) * limit
-  const end = start + limit
-  const last = end >= _keys.length
+  async getPost(key, short) {
+    return Promise.resolve(this._post(key, short))
+  }
 
-  return {
-    last,
-    posts: _keys.slice(start, end).map((key) => {
-      let post = { ..._posts[key] }
+  _post(key, short) {
+    const post = { ...this._posts[key] }
 
+    if (post) {
       if (short) {
         delete post.body
       }
 
       return post
-    }),
+    } else {
+      throw {
+        status: 404,
+        message: 'resource not found',
+      }
+    }
   }
 }
+
+const instance = new PostsService()
+
+instance.preCache()
+
+export default instance

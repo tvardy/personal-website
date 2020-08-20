@@ -1,11 +1,7 @@
 .page-content {
-  padding: $spacing-unit 0;
+  @include content-wrapper();
 }
 
 .page-heading {
   font-size: 20px;
-}
-
-.page-content {
-  @include content-wrapper();
 }

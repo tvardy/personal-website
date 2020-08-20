@@ -1,6 +1,6 @@
 import UnsplashService from '../../../services/unsplash_service'
+import PostsService from '../../../services/posts_service'
 
-import { getPost } from '../../../services/posts_service'
 import { sendJSON } from '../../../_utils'
 
 const utm = '?utm_source=personal-website&utm_medium=referral'
@@ -10,7 +10,7 @@ export async function get(req, res) {
   const short = req.query.short !== undefined
 
   try {
-    const data = await getPost(postSlug, short)
+    const data = await PostsService.getPost(postSlug, short)
 
     if (data.image) {
       try {
