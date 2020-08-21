@@ -61,4 +61,8 @@ export async function getDataOrRespondWithError(context, url) {
   }
 }
 
+export function trimInner(str) {
+  return str.replace(/[\s\uFEFF\xA0]+/g, '')
+}
+
 export const memoize = fast_memoize

@@ -3,8 +3,6 @@ import PostsService from '../../../services/posts_service'
 
 import { sendJSON } from '../../../_utils'
 
-const utm = '?utm_source=personal-website&utm_medium=referral'
-
 export async function get(req, res) {
   const { postSlug } = req.params
   const short = req.query.short !== undefined
@@ -14,16 +12,13 @@ export async function get(req, res) {
 
     if (data.image) {
       try {
-        const r = await UnsplashService.get(data.image.id)
-        const photo = JSON.parse(r.body)
+        const photo = await UnsplashService.get(data.image.id)
 
-        data.image['url'] = photo.urls.full.replace(/\?.+/, '')
-        data.image['attribution'] = `Photo by
-        <a href="${photo.user.links.self}${utm}">${photo.user.name}</a>
-        on
-        <a href="https://unsplash.com/${utm}">Unsplash</a>`
+        data.image.url = photo.urls.base
+        data.image.attribution = photo.attribution
+        console.log('attribution length', photo.attribution.length)
       } catch (err) {
-        console.error('!!!', err)
+        throw err
       }
     }
 
