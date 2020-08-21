@@ -21,9 +21,9 @@ export const site = {
 }
 
 export const paths = {
-  static: './static',
-  pages: ['/_pages/**/*.md'],
-  posts: ['/_posts/**/*.md'],
+  data: './data',
+  pages: ['/pages/**/*.md'],
+  posts: ['/posts/**/*.md'],
 }
 
 export const errors = {

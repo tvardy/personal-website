@@ -1,12 +1,13 @@
 ---
 title: Why we should encourage women to work in programming
-tags: [ women, IT trends ]
+tags: [women, IT trends]
 image:
   source: unsplash
   id: LVooQvKjLjw
   crop: edges,bottom,left
   class: effect--desaturate
 ---
+
 I really like the [CSS Day](https://cssday.nl) Conference, organised in Amsterdam since 2013,
 although I've never been to any in person.
 
@@ -15,6 +16,7 @@ I was recently viewing new videos from the 2018 edition published on their offic
 that I decided to also remind myself some older speeches.
 
 And here's one, I'd like to comment on&hellip; well actually, only a 1m 22s fragment&hellip; ;)
+
 <!-- more -->
 
 <p style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/181175981?color=008000#t=36m48s" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p><script src="https://player.vimeo.com/api/player.js"></script>

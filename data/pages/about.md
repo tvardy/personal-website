@@ -3,6 +3,7 @@ slug: about
 title: About
 href: /about
 ---
+
 ## ... author
 
 My name is Greg. I'm a full-stack JS developer living and working in Poland.
@@ -16,7 +17,6 @@ and [Resume](/resume) pages. (Sorry... WIP there ;))
 
 If you'd like to contact me, then reach me by
 my [LinkedIn profile](https://pl.linkedin.com/in/grzegorz-twardowski-7b1082b2).
-
 
 ## ... this site
 

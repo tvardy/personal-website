@@ -1,6 +1,7 @@
 ---
 slug: resume
-title: Resume
+title: Résumé
 href: /resume
 ---
+
 ## WIP...

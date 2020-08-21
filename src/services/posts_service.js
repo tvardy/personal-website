@@ -12,7 +12,7 @@ const readFile = pify(fs.readFile)
 
 class PostsService {
   async preCache() {
-    const files = await fastglob(paths.static + paths.posts)
+    const files = await fastglob(paths.data + paths.posts)
     const data = await Promise.all(
       files.map((file) => {
         return readFile(path.resolve(file), 'utf8')

@@ -1,10 +1,11 @@
 ---
 title: Understanding the "git add" + "git commit" commands pair
-tags: [ git, vcs, IT metaphors ]
+tags: [git, vcs, IT metaphors]
 image:
   source: unsplash
   id: UWupz6Lxz3A
 ---
+
 Sooner or later all of my students step into learning [Git](//git-scm.com).
 It's a no-brainer; I can't really imagine a situation in which a person wanting
 to become a programmer (of any programming language(s)) would not need to learn
@@ -20,8 +21,8 @@ a question like:
 The short answer is: You don't actually have to (but you often should)
 
 The longer answer all comes down to one word: _control_.
-<!-- more -->
 
+<!-- more -->
 
 ## The short answer
 
@@ -33,10 +34,9 @@ OK! So what does the `-a` flag mean? I hear you say.
 
 Git's official [documentation](https://git-scm.com/docs/git-commit#git-commit--a) states:
 
-> **-a**<br>
-> **--all**<br>
->  Tell the command to automatically stage files that have been modified and deleted,
->  but new files you have not told Git about are not affected.
+> **-a**<br> > **--all**<br>
+> Tell the command to automatically stage files that have been modified and deleted,
+> but new files you have not told Git about are not affected.
 
 Good for us. If we **changed** one or two files (or however many we like) and we'd like to
 add them **all** within one commit.
@@ -49,7 +49,6 @@ on their learning path.
 
 And maybe it'd also satisfy you.
 
-
 ## The longer answer
 
 But there's also the longer answer I usually give to my students to help them understand
@@ -60,7 +59,6 @@ before we really buy anything? ;)
 
 When the students imagine the aforementioned mechanism of working with their source code
 as a procedure of buying goods on Amazon, eBay etc. everything becomes clearer.
-
 
 ### Add do cart == git add
 
@@ -77,7 +75,6 @@ without consequence.
 
 Well, that's exactly what the process of staging files is. And it's much less serious
 as the second step.
-
 
 ### Pay == git commit
 
@@ -97,7 +94,6 @@ and you know that they all bring a different set of changes, you can consciously
 choose to commit e.g. files "x" and "z" together, and then the remaining "y" file separately.
 
 So it's like splitting your shopping into, for instance, private and corporate expenses.
-
 
 ### Bonus: Buy now == git commit -am ;)
 

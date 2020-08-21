@@ -3,8 +3,11 @@ title: "This post demonstrates post content styles"
 author: "Bart Simpson"
 meta: "Springfield"
 ---
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
+
 <!-- more -->
+
 ## Some great heading (h2)
 
 Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu.
@@ -33,10 +36,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eg
 
 Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.
 
-``` html
+```html
 <html>
-  <head>
-  </head>
+  <head> </head>
   <body class="test" data-foo="bar">
     <h1 id="heading">Hello, World!</h1>
     <!-- comment -->
@@ -44,18 +46,17 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
 </html>
 ```
 
-``` js
-const obj = { foo: 'bar' };
+```js
+const obj = { foo: "bar" };
 
-function test (...args) {
-    const _a = (x) => x * 2;
-    // comment
-    return args.map(_a);
+function test(...args) {
+  const _a = (x) => x * 2;
+  // comment
+  return args.map(_a);
 }
 
 console.log(test(1, 2, 3));
 ```
-
 
 In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
 
@@ -86,8 +87,6 @@ In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla e
 2. Second item, dawg
 3. Third item, what what?!
 4. Fourth item, fo sheezy my neezy
-
-
 
 ## Headings are cool! (h2)
 
