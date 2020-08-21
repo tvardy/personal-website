@@ -14,9 +14,9 @@ export const site = {
   api: {
     _root: 'api',
     pages: '/pages',
-    page: '/page/{{pageSlug}}',
+    page: '/pages/{{pageSlug}}',
     posts: '/posts?page={{page}}',
-    post: '/post/{{postSlug}}',
+    post: '/posts/{{postSlug}}',
   },
 }
 
