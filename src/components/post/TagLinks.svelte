@@ -7,7 +7,7 @@
 {#if Array.isArray(tags) && tags.length}
   <InTextSeparator />
   {#each tags as tag, index}
-    <a href="tags/{tag}">{tag}</a>
+    <a href="blog/tag/{tag}">{tag}</a>
     {#if index + 1 < tags.length},&nbsp;{/if}
   {/each}
 {/if}

@@ -6,7 +6,7 @@ import matter from 'front-matter'
 import pify from 'pify'
 
 import { paths, site } from '../_settings'
-import { reduceToObjByKey } from '../_utils'
+import { find, filter } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
@@ -19,8 +19,7 @@ class PostsService {
       })
     )
 
-    this._posts = files.map(_parsePost).reverse().reduce(reduceToObjByKey('file'), {})
-    this._keys = Object.keys(this._posts)
+    this._posts = files.map(_parsePost).reverse()
 
     function _parsePost(file, i) {
       const basename = path.basename(file)
@@ -28,38 +27,58 @@ class PostsService {
       const { attributes, body } = matter(data[i])
       const excerpt = body.split(site.excerpt_separator)[0]
 
-      return {
+      const post = {
         file: basename.replace(`${path.extname(file)}`, ''),
+        tags: [],
         ...attributes,
         date,
         slug,
         excerpt,
         body,
       }
+
+      return post
     }
   }
 
-  async getPosts({ page = 1, limit = site.posts.limit, short = true } = {}) {
-    return Promise.resolve(this._paged(page, limit, short))
+  async findAll({
+    page = 1,
+    limit = site.posts.limit,
+    filters = [],
+    short = true,
+  } = {}) {
+    page = parseInt(page)
+
+    let posts
+
+    if (filters.length) {
+      posts = filter(this._posts, (post) =>
+        filters.every(({ by, value }) => _has[by](post, value))
+      )
+    } else {
+      posts = [...this._posts]
+    }
+
+    return Promise.resolve(this._paged(posts, { page, limit, short }))
   }
 
-  _paged(page, limit, short) {
+  _paged(posts, { page, limit, short }) {
     const start = (page - 1) * limit
     const end = start + limit
-    const last = end >= this._keys.length
+    const last = end >= posts.length
 
     return {
       last,
-      posts: this._keys.slice(start, end).map((key) => this._post(key, short)),
+      posts: posts.slice(start, end).map((post) => this._post(post.slug, short)),
     }
   }
 
-  async getPost(key, short) {
+  async findOne(key, short) {
     return Promise.resolve(this._post(key, short))
   }
 
-  _post(key, short) {
-    const post = { ...this._posts[key] }
+  _post(slug, short) {
+    const post = find(this._posts, { slug })
 
     if (post) {
       if (short) {
@@ -74,6 +93,10 @@ class PostsService {
       }
     }
   }
+}
+
+const _has = {
+  tag: (post, tag) => post.tags.includes(tag),
 }
 
 const instance = new PostsService()

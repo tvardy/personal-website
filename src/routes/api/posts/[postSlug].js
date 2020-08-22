@@ -8,7 +8,7 @@ export async function get(req, res) {
   const short = req.query.short !== undefined
 
   try {
-    const data = await PostsService.getPost(postSlug, short)
+    const data = await PostsService.findOne(postSlug, short)
 
     if (data.image) {
       try {

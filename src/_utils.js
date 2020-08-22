@@ -1,5 +1,8 @@
 import path from 'path'
+
 import fast_memoize from 'fast-memoize'
+import _filter from 'lodash.filter'
+import _find from 'lodash.find'
 
 export function getPageTitle(site, page = {}) {
   return `${page.title ? `${page.title} | ` : ''}${site.title}`
@@ -66,3 +69,5 @@ export function trimInner(str) {
 }
 
 export const memoize = fast_memoize
+export const filter = _filter
+export const find = _find

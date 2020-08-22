@@ -29,8 +29,10 @@
 </script>
 
 <svelte:head>
-  <title>{getPageTitle(site, { title: `blog archive | page ${page}` })}</title>
-  <link rel="canonical" href="{site.url}/{page === 1 ? '' : `blog/${page}`}" />
+  <title>
+    {getPageTitle(site, { title: `blog archive | tag: {tag} | page ${page}` })}
+  </title>
+  <link rel="canonical" href="{site.url}/{page === 1 ? '' : `blog/tag/${page}`}" />
 </svelte:head>
 
 <ArchiveList {posts} />

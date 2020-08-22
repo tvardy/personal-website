@@ -17,6 +17,7 @@ export const site = {
     page: '/pages/{{pageSlug}}',
     posts: '/posts?page={{page}}',
     post: '/posts/{{postSlug}}',
+    tag: '/posts/tag/{{tag}}?page={{page}}',
   },
 }
 

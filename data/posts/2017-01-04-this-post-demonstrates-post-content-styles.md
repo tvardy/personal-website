@@ -1,5 +1,8 @@
 ---
 title: "This post demonstrates post content styles"
+tags:
+  - tag-1
+  - tag-2
 author: "Bart Simpson"
 meta: "Springfield"
 ---
