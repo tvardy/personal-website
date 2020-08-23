@@ -1,4 +1,4 @@
-import PagesService from '../../../services/pages_service'
+import PagesService from '../../../services/pages'
 import { sendJSON, arrayToURL } from '../../../_utils'
 
 export async function get(req, res) {

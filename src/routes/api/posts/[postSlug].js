@@ -1,5 +1,5 @@
-import UnsplashService from '../../../services/unsplash_service'
-import PostsService from '../../../services/posts_service'
+import UnsplashService from '../../../services/unsplash'
+import PostsService from '../../../services/posts'
 
 import { sendJSON } from '../../../_utils'
 
@@ -16,7 +16,6 @@ export async function get(req, res) {
 
         data.image.url = photo.urls.base
         data.image.attribution = photo.attribution
-        console.log('attribution length', photo.attribution.length)
       } catch (err) {
         throw err
       }

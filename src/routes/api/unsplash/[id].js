@@ -1,4 +1,4 @@
-import UnsplashService from '../../../services/unsplash_service'
+import UnsplashService from '../../../services/unsplash'
 import { sendJSON } from '../../../_utils'
 
 export async function get(req, res) {

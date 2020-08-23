@@ -17,9 +17,9 @@
 
 <script>
   // components
-  import PageNav from '../components/page/Nav.svelte'
-  import PageMain from '../components/page/Main.svelte'
-  import PageFooter from '../components/page/Footer.svelte'
+  import PageNav from '../components/_layout/Nav.svelte'
+  import PageMain from '../components/_layout/Main.svelte'
+  import PageFooter from '../components/_layout/Footer.svelte'
 
   // props
   export let segment

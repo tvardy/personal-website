@@ -1,4 +1,4 @@
-import PostsService from '../../../services/posts_service'
+import PostsService from '../../../services/posts'
 import { sendJSON } from '../../../_utils'
 
 export async function get(req, res) {

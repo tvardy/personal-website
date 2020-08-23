@@ -1,13 +1,14 @@
-import APIService from './api_service'
+import APIService from './_api_service'
 import { trimInner, memoize } from '../_utils'
 
 require('dotenv').config()
 
+const baseUrl = 'https://api.unsplash.com'
 const utm = '?utm_source=personal-website&utm_medium=referral'
 
 class UnsplashService {
   constructor() {
-    this.api = new APIService('https://api.unsplash.com')
+    this.api = new APIService(baseUrl)
     this.api.headers = {
       'Accept-Version': 'v1',
       Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
