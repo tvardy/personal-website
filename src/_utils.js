@@ -40,6 +40,14 @@ export function sendJSON(res, data, status = 200) {
   res.end(JSON.stringify(data))
 }
 
+export function sendXML(res, data, status = 200) {
+  res.writeHead(status, {
+    'Content-Type': 'text/xml',
+  })
+
+  res.end(data)
+}
+
 export function getPermalink({ date, slug }) {
   return `post/${date}-${slug}`
 }

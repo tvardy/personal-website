@@ -18,10 +18,12 @@
     }
   },
   "dependencies": {
+    "aguid": "2.0.0",
     "compression": "1.7.4",
     "dotenv": "8.2.0",
     "fast-glob": "3.2.4",
     "fast-memoize": "2.5.2",
+    "feed": "4.2.1",
     "front-matter": "4.0.2",
     "got": "11.5.2",
     "highlight.js": "10.1.2",
@@ -30,6 +32,7 @@
     "marked": "1.1.1",
     "pify": "5.0.0",
     "polka": "1.0.0-next.11",
+    "remove-markdown": "0.3.0",
     "sirv": "1.0.6"
   },
   "devDependencies": {

@@ -34,6 +34,12 @@
 
 <svelte:head>
   <meta name="description" content={site.description} />
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title={site.title}
+    href="feed.xml"
+  />
 </svelte:head>
 
 <PageNav {segment} {site} {pages} />

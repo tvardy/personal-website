@@ -9,7 +9,7 @@ image:
 Sooner or later all of my students step into learning [Git](//git-scm.com).
 It's a no-brainer; I can't really imagine a situation in which a person wanting
 to become a programmer (of any programming language(s)) would not need to learn
-and use a <accr title="Version Control System">VCS</accr>.
+and use a <abbr title="Version Control System">VCS</abbr>.
 And `git` established its esteemed reputation in this area for good reason.
 
 One thing I have noticed is that roughly one in four of my students will ask me

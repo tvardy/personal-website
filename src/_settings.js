@@ -2,7 +2,10 @@ export const site = {
   title: 'page name',
   description: `A developers' website to share some thoughts, ideas, code, an official resume etc.`,
   url: 'https://example.com',
-  author: 'tvardy',
+  author: {
+    name: 'tvardy',
+    link: 'https://github.com/tvardy',
+  },
   lang: 'en',
   timezone: 'UTC',
   excerpt_separator: '<!-- more -->',

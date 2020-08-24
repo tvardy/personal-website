@@ -15,7 +15,9 @@
 
     <nav class="site-nav">
       {#each pages as { slug, href, title }}
-        <a class="page-link" class:selected={segment === slug} {href}>{title}</a>
+        <a class="page-link" class:selected={segment === slug} {href} rel="prefetch">
+          {title}
+        </a>
       {/each}
     </nav>
 

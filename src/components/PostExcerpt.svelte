@@ -13,12 +13,12 @@
 
 <header class="post-header">
   <h1 class="post-title">
-    <a class="post-link" href={getPermalink(post)}>{post.title}</a>
+    <a class="post-link" href={getPermalink(post)} rel="prefetch">{post.title}</a>
   </h1>
 
   <p class="post-meta">
     {post.date}
-    <!-- "%b %-d, %Y" -->
+    <!-- TODO: "%b %-d, %Y" -->
     <TagLinks tags={post.tags} />
   </p>
 </header>
