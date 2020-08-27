@@ -69,7 +69,7 @@ class PostsService {
 
     return {
       last,
-      posts: posts.slice(start, end).map((post) => this._post(post.slug, short)),
+      posts: posts.slice(start, end).map((post) => this._post(post.file, short)),
     }
   }
 
@@ -77,8 +77,8 @@ class PostsService {
     return Promise.resolve(this._post(key, short))
   }
 
-  _post(slug, short) {
-    const post = find(this._posts, { slug })
+  _post(file, short) {
+    const post = Object.assign({}, find(this._posts, { file }))
 
     if (post) {
       if (short) {
