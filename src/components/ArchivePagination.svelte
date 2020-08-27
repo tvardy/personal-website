@@ -16,10 +16,10 @@
 {#if visible}
   <div class="pagination">
     {#if !last}
-      <a class="previous" href="{baseUrl}/{page + 1}">&laquo; Older</a>
+      <a class="previous" href="{baseUrl}/{page + 1}" rel="prefetch">&laquo; Older</a>
     {/if}
     {#if page > 1}
-      <a class="next" href="{baseUrl}/{page - 1}">Newer &raquo;</a>
+      <a class="next" href="{baseUrl}/{page - 1}" rel="prefetch">Newer &raquo;</a>
     {/if}
   </div>
 {/if}

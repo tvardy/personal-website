@@ -6,6 +6,7 @@
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
+    "prestart": "npm run build",
     "start": "node __sapper__/build",
     "#cy:run": "cypress run",
     "#cy:open": "cypress open",

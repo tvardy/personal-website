@@ -28,10 +28,14 @@ class UnsplashService {
       urls: {
         base: data.urls.raw.replace(/\?.+/, ''),
       },
-      attribution: trimInner(`Photo by
+      attribution: trimInner(
+        `
+        Photo by
         <a href="${data.user.links.self}${utm}">${data.user.name}</a>
         on
-        <a href="https://unsplash.com/${utm}">Unsplash</a>`),
+        <a href="https://unsplash.com/${utm}">Unsplash</a>
+      `.trim()
+      ),
     }
   }
 }

@@ -74,7 +74,7 @@ export async function getDataOrRespondWithError(context, url) {
 }
 
 export function trimInner(str) {
-  return str.replace(/[\s\uFEFF\xA0]+/g, '')
+  return str.replace(/[\s\uFEFF\xA0]{2,}/g, ' ')
 }
 
 export function luxonize(strDate) {

@@ -36,5 +36,5 @@
 </div>
 
 <p class="post-continue">
-  <a href={getPermalink(post)}>Read on &rarr;</a>
+  <a href={getPermalink(post)} rel="prefetch">Read on &rarr;</a>
 </p>
