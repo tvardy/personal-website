@@ -5,8 +5,8 @@ import { DateTime } from 'luxon'
 import _filter from 'lodash.filter'
 import _find from 'lodash.find'
 
-export function getPageTitle(site, page = {}) {
-  return `${page.title ? `${page.title} | ` : ''}${site.title}`
+export function getPageTitle(site, { title } = {}) {
+  return `${title ? `${title} | ` : ''}${site.title}`
 }
 
 export function interpolateString(str, data) {

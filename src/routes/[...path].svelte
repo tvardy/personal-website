@@ -11,7 +11,7 @@
 
     const page = await getDataOrRespondWithError(this, url)
 
-    return { site, page }
+    return { path, site, page }
   }
 </script>
 
@@ -20,15 +20,18 @@
   import { getPageTitle } from '../_utils'
 
   // components
+  import OGTags from '../components/OGTags.svelte'
   import Page from '../components/Page.svelte'
 
   // props
+  export let path
   export let site = {}
   export let page = {}
 </script>
 
 <svelte:head>
   <title>{getPageTitle(site, page)}</title>
+  <OGTags {path} {site} {page} />
 </svelte:head>
 
 <Page {page} />
