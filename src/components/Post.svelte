@@ -1,10 +1,21 @@
 <script>
+  import { stores } from '@sapper/app'
+  const { session } = stores()
+
+  import { luxonize } from '../_utils'
+
   import PostImage from './post/Image.svelte'
   import TagLinks from './post/TagLinks.svelte'
   import Markdown from './Markdown.svelte'
   import InTextSeparator from './InTextSeparator.svelte'
 
-  export let post
+  // props
+  export let post = {}
+
+  // internal props
+  const { site } = $session
+  const luxDate = luxonize(post.date).setLocale(site.lang)
+  const formattedDate = luxDate.toFormat('DDD')
 </script>
 
 {#if post.image}
@@ -17,7 +28,7 @@
     <h1 class="post-title" itemprop="name headline">{post.title}</h1>
 
     <p class="post-meta">
-      <time datetime={post.date} itemprop="datePublished">{post.date}</time>
+      <time datetime={post.date} itemprop="datePublished">{formattedDate}</time>
       {#if post.author}
         <InTextSeparator />
         <span itemprop="author" itemscope itemtype="http://schema.org/Person">

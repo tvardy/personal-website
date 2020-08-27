@@ -1,6 +1,7 @@
 import path from 'path'
 
 import fast_memoize from 'fast-memoize'
+import { DateTime } from 'luxon'
 import _filter from 'lodash.filter'
 import _find from 'lodash.find'
 
@@ -74,6 +75,10 @@ export async function getDataOrRespondWithError(context, url) {
 
 export function trimInner(str) {
   return str.replace(/[\s\uFEFF\xA0]+/g, '')
+}
+
+export function luxonize(strDate) {
+  return DateTime.fromISO(strDate)
 }
 
 export const memoize = fast_memoize

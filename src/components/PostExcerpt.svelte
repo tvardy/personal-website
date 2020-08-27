@@ -1,10 +1,19 @@
 <script>
+  import { stores } from '@sapper/app'
+  const { session } = stores()
+
   import TagLinks from './post/TagLinks.svelte'
   import Markdown from './Markdown.svelte'
 
-  import { getPermalink } from '../_utils'
+  import { getPermalink, luxonize } from '../_utils'
 
-  export let post
+  // props
+  export let post = {}
+
+  // internal props
+  const { site } = $session
+  const luxDate = luxonize(post.date).setLocale(site.lang)
+  const formattedDate = luxDate.toFormat('DDD')
 </script>
 
 <style lang="scss">
@@ -17,8 +26,7 @@
   </h1>
 
   <p class="post-meta">
-    {post.date}
-    <!-- TODO: "%b %-d, %Y" -->
+    <time datetime={post.date}>{formattedDate}</time>
     <TagLinks tags={post.tags} />
   </p>
 </header>
