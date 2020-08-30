@@ -19,5 +19,4 @@ jobs:
         node-version: 10.x
     - run: npm ci
     - run: npm run build
-    - #run: mv ./__sapper__/build/index.js ./__sapper/build/app.js
     - run: la -alh
