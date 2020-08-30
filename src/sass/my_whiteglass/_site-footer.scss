@@ -1,0 +1,24 @@
+.site-footer {
+  .wrapper {
+    border-top: 1px solid $brand-color;
+    padding: 0.66rem 0 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  small {
+    border: 1px dashed $brand-color;
+    display: block;
+    max-width: 66%;
+    font-size: 0.8em;
+    line-height: 1.4;
+    margin: 0.5em auto;
+    padding: 0.5em;
+
+    @include media-query($on-palm) {
+      max-width: 100%;
+    }
+  }
+}

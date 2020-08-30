@@ -1,0 +1,26 @@
+.pagination {
+  padding: $spacing-unit / 2 0;
+  border-top: 1px solid $grey-color-light;
+  border-bottom: 1px solid $grey-color-light;
+  text-align: center;
+  @extend %clearfix;
+
+  a {
+    &,
+    &:visited {
+      color: $grey-color;
+    }
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+
+  .previous {
+    float: left;
+  }
+
+  .next {
+    float: right;
+  }
+}
