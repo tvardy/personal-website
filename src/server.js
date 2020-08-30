@@ -8,6 +8,10 @@ import { site } from './_settings'
 const { PORT, NODE_ENV } = process.env
 const dev = NODE_ENV === 'development'
 
+// TODO: add helmet package (and/or other way to add contents from the old `_headers` file)
+// TODO: rename `static to `public` (and stop using `sirv` if `NODE_ENV === 'production')
+// TODO (v2): think of having a redirects file
+
 polka()
   .use(
     compression({ threshold: 0 }),

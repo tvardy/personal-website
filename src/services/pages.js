@@ -10,6 +10,8 @@ import { reduceToObjByKey } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
+// TODO: allow showing drafts
+
 class PostsService {
   async preCache() {
     const files = await fastglob(paths.data + paths.pages)

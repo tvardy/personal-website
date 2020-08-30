@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- TODO: move `lang` attribute into content? -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -7,6 +8,7 @@
 
     %sapper.base%
 
+    <!--  TODO: move to `_layout.svelte`?   -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700"
@@ -14,11 +16,13 @@
     />
     %sapper.styles%
 
+    <!--  TODO: move to `_layout.svelte`?   -->
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/png" href="favicon.png" />
 
     %sapper.head%
   </head>
+  <!-- TODO: check HTML markup in old `_layouts` folder -->
   <body>
     %sapper.html% %sapper.scripts%
   </body>
