@@ -37,8 +37,8 @@ jobs:
       - name: ftp deploy
         uses: sebastianpopp/ftp-action@v2.0.0
         with:
-          host: $DEPLOY_FTP_URL
-          user: $DEPLOY_FTP_USER
-          password: $DEPLOY_FTP_PASSWORD
+          host: ${{ secrets.DEPLOY_FTP_URL }}
+          user: ${{ secrets.DEPLOY_FTP_USER }}
+          password: ${{ secrets.DEPLOY_FTP_PASSWORD }}
           localDir: .
           remoteDir: .
