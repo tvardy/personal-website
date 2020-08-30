@@ -1,9 +1,8 @@
 <script context="module">
   import { interpolateString, getDataOrRespondWithError } from '../../_utils'
 
-  export async function preload({ path, params }, { site }) {
+  export async function preload({ path, params }, { api, site }) {
     const { postSlug } = params
-    const { api } = site
 
     const url = api._root + interpolateString(api.post, { postSlug })
 

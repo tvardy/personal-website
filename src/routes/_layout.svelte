@@ -1,8 +1,7 @@
 <script context="module">
   import { getDataOrRespondWithError } from '../_utils'
 
-  export async function preload({ path }, { site }) {
-    const { api } = site
+  export async function preload({ path }, { api, site }) {
     const url = api._root + api.pages
 
     const params = {

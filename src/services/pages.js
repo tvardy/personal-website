@@ -5,7 +5,7 @@ import path from 'path'
 import matter from 'front-matter'
 import pify from 'pify'
 
-import { paths, site } from '../_settings'
+import { paths, nav } from '../_settings'
 import { reduceToObjByKey } from '../_utils'
 
 const readFile = pify(fs.readFile)
@@ -23,7 +23,7 @@ class PostsService {
       .map((str) => matter(str))
       .reduce(reduceToObjByKey('attributes.slug'), {})
 
-    this._navData = site.nav.map((slug) => this._pages[slug].attributes)
+    this._navData = nav.map((slug) => this._pages[slug].attributes)
   }
 
   getPage(slug) {

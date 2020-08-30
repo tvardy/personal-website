@@ -5,7 +5,7 @@ import helmet from 'helmet'
 import sirv from 'sirv'
 import * as sapper from '@sapper/server'
 
-import { site } from './_settings'
+import { site, api } from './_settings'
 
 const { PORT, NODE_ENV } = process.env
 const dev = NODE_ENV === 'development'
@@ -23,6 +23,7 @@ polka()
     sapper.middleware({
       session: () => ({
         site,
+        api,
       }),
     })
   )
