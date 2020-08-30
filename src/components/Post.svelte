@@ -22,7 +22,12 @@
   <PostImage params={post.image} />
 {/if}
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<article
+  class="post"
+  itemscope
+  itemtype="http://schema.org/BlogPosting"
+  lang={post.lang || site.lang}
+>
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{post.title}</h1>

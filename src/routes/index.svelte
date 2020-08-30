@@ -33,6 +33,6 @@
   <OGTags {path} {site} />
 </svelte:head>
 
-<ArchiveList {posts} />
+<ArchiveList {posts} lang={site.lang} />
 
 <ArchivePagination page={1} {last} />

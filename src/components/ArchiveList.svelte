@@ -2,22 +2,19 @@
   import PostExcerpt from './PostExcerpt.svelte'
 
   export let posts
+  export let lang
 </script>
 
 <style lang="scss">
   @import '../sass/post-list';
 </style>
 
-<div class="home">
+<ul class="post-list">
 
-  <ul class="post-list">
+  {#each posts as post}
+    <li lang={post.lang || lang}>
+      <PostExcerpt {post} />
+    </li>
+  {/each}
 
-    {#each posts as post}
-      <li>
-        <PostExcerpt {post} />
-      </li>
-    {/each}
-
-  </ul>
-
-</div>
+</ul>
