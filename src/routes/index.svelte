@@ -1,9 +1,7 @@
 <script context="module">
   import { interpolateString, getDataOrRespondWithError } from '../_utils'
 
-  export async function preload({ path }, { site }) {
-    const { api } = site
-
+  export async function preload({ path }, { api, site }) {
     const url = api._root + interpolateString(api.posts, { page: 1 })
 
     const data = await getDataOrRespondWithError(this, url)

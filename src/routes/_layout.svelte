@@ -1,8 +1,7 @@
 <script context="module">
   import { getDataOrRespondWithError } from '../_utils'
 
-  export async function preload({ path }, { site }) {
-    const { api } = site
+  export async function preload({ path }, { api, site }) {
     const url = api._root + api.pages
 
     const params = {
@@ -34,12 +33,19 @@
 
 <svelte:head>
   <meta name="description" content={site.description} />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700"
+    rel="stylesheet"
+  />
   <link
     rel="alternate"
     type="application/atom+xml"
     title={site.title}
     href="feed.xml"
   />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 </svelte:head>
 
 <PageNav {segment} {site} {pages} />

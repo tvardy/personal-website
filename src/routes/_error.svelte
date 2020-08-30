@@ -1,6 +1,6 @@
 <script>
   // constants
-  import { errors } from '../_settings'
+  import errors from '../_errors'
 
   // utils
   import { getPageTitle } from '../_utils'
