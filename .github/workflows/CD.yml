@@ -33,3 +33,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: bundle
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: $DEPLOY_FTP_URL
+          ftp-username: $DEPLOY_FTP_USER
+          ftp-password: $DEPLOY_FTP_PASSWORD
+          local-dir: ./
