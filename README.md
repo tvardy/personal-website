@@ -1,1 +1,1 @@
-# [tvardy.blog](https://tvardy.blog/)
+## [ooga-blo.ga](https://ooga-blo.ga/) ;)
