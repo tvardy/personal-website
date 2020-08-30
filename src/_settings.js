@@ -1,7 +1,7 @@
 export const site = {
-  title: 'page name',
+  title: 'Ooga-Bloga',
   description: `A developers' website to share some thoughts, ideas, code, an official resume etc.`,
-  url: 'https://example.com',
+  url: 'https://ooga-blo.ga',
   author: {
     name: 'tvardy',
     link: 'https://github.com/tvardy',
