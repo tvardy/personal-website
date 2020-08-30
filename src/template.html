@@ -4,24 +4,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    %sapper.base%
-
-    <!--  TODO: move to `_layout.svelte`?   -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700"
-      rel="stylesheet"
-    />
-    %sapper.styles%
-
-    <!--  TODO: move to `_layout.svelte`?   -->
-    <link rel="manifest" href="manifest.json" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-
-    %sapper.head%
+    %sapper.base% %sapper.styles% %sapper.head% %sapper.scripts%
   </head>
   <body>
-    %sapper.html% %sapper.scripts%
+    %sapper.html%
   </body>
 </html>
