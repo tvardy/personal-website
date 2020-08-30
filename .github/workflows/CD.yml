@@ -1,0 +1,35 @@
+name: CD
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - run: npm ci
+      - run: npm run build
+      - run: mv __sapper__/build/index.js __sapper__/build/app.js
+      - run: cp -R public __sapper__/build/
+      - name: Upload artifact bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: bundle
+          path: __sapper__/build/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact bundle
+        uses: actions/download-artifact@v2
+        with:
+          name: bundle
