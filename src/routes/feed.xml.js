@@ -17,7 +17,10 @@ export async function get(req, res) {
     description: site.description,
     id: `${site.url}/`,
     link: site.url,
-    author: { ...site.author },
+    author: {
+      name: site.author.name || site.author,
+      uri: site.author.uri || null,
+    },
   })
 
   posts.forEach((post) => {
@@ -28,7 +31,14 @@ export async function get(req, res) {
       date: new Date(post.date),
       description: removeMd(post.excerpt),
       content: md(post.excerpt),
-      author: [{ ...site.author }],
+      author: [
+        {
+          name: !!post.author
+            ? post.author.name || post.author
+            : site.author.name || site.author,
+          uri: (!!post.author ? post.author.uri : site.author.uri) || null,
+        },
+      ],
       category: post.tags.map((tag) => ({
         name: 'tag',
         term: tag,

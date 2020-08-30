@@ -2,7 +2,6 @@ export const site = {
   title: 'page name',
   description: `A developers' website to share some thoughts, ideas, code, an official resume etc.`,
   url: 'https://example.com',
-  // TODO: allow handling both versions (string || object) of `author` field
   author: {
     name: 'tvardy',
     link: 'https://github.com/tvardy',
