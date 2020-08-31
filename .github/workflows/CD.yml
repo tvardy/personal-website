@@ -11,39 +11,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: 10.x
       - run: npm ci
       - run: npm run build
-      - run: rm -rf node_modules
-      - run: npm i --production
-      - name: Upload artifact bundle
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
-          name: bundle
           path: |
             __sapper__/build/
-            node_modules
             data
             public
+            package.json
+            package-lock.json
             app.js
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact bundle
-        uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v2
+      - uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
-          name: bundle
-      - run: ls -alhR
-      - name: ftp deploy
-        uses: sebastianpopp/ftp-action@v2.0.0
-        with:
-          host: ${{ secrets.DEPLOY_FTP_URL }}
-          user: ${{ secrets.DEPLOY_FTP_USER }}
-          password: ${{ secrets.DEPLOY_FTP_PASSWORD }}
-          localDir: .
-          remoteDir: .
+          host: ${{ secrets.DC_HOST }}
+          user: ${{ secrets.DC_USER }}
+          pass: ${{ secrets.DC_PASS }}
+          connect_timeout: 10s
+          first_ssh: |
+            rm -rf ${{ secrets.DC_PATH }}
+          scp: |
+            './artifact/*' => ${{ secrets.DC_PATH }}
+          last_ssh: |
+            cd ${{ secrets.DC_PATH }}
+            npm ci --production
+            ${{ secrets.DC_FINISH }}
