@@ -18,7 +18,11 @@ import { site, api } from './_settings'
 polka()
   .use(
     compression({ threshold: 0 }),
-    dev ? _next : helmet(),
+    dev
+      ? _next
+      : helmet({
+          contentSecurityPolicy: false,
+        }),
     dev ? sirv('public', { dev }) : _next,
     sapper.middleware({
       session: () => ({
