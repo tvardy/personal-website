@@ -17,13 +17,12 @@ jobs:
           node-version: 10.x
       - run: npm ci
       - run: npm run build
-      - run: mv __sapper__/build/index.js __sapper__/build/app.js
-      - run: cp -R public __sapper__/build/
+      - run: echo require('__sapper__/build') > app.js # this is forced by server's entrypoints config
       - name: Upload artifact bundle
         uses: actions/upload-artifact@v2
         with:
           name: bundle
-          path: __sapper__/build/
+          path: [__sapper__/build/, data, public, app.js]
 
   deploy:
     needs: build
@@ -33,7 +32,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: bundle
-      - run: ls -alhR 
+      - run: ls -alhR
       - name: ftp deploy
         uses: sebastianpopp/ftp-action@v2.0.0
         with:

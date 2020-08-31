@@ -1,5 +1,6 @@
 <script>
   import md from 'marked'
+  // TODO: trim down the Highlight.js package to only needed elements/languages
   import highlight from 'highlight.js'
 
   md.setOptions({
