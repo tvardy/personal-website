@@ -17,12 +17,15 @@ jobs:
           node-version: 10.x
       - run: npm ci
       - run: npm run build
+      - run: rm -rf node_modules
+      - run: npm i --production
       - name: Upload artifact bundle
         uses: actions/upload-artifact@v2
         with:
           name: bundle
           path: |
             __sapper__/build/
+            node_modules
             data
             public
             app.js
