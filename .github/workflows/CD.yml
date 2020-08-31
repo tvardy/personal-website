@@ -22,7 +22,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: bundle
-          path: [__sapper__/build/, data, public, app.js]
+          path: |
+            __sapper__/build/
+            data
+            public
+            app.js
 
   deploy:
     needs: build
