@@ -13,11 +13,6 @@ const _next = (_, __, next) => {
 
 import { site, api } from './_settings'
 
-console.log('__ [LOG] env:', NODE_ENV)
-console.error('__ [ERR] env:', NODE_ENV)
-console.log('__ [LOG] api:', api._root)
-console.error('__ [ERR] api:', api._root)
-
 // TODO (v2): think of having a redirects file
 
 polka()

@@ -43,5 +43,6 @@ jobs:
             './artifact/*' => ${{ secrets.DC_PATH }}
           last_ssh: |
             cd ${{ secrets.DC_PATH }}
-            npm ci --production
+            ${{ secrets.DC_NPM_BIN }} ci --production
+            ln -fs ../.env ./.env
             ${{ secrets.DC_FINISH }}
