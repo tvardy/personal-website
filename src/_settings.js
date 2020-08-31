@@ -15,8 +15,16 @@ export const site = {
 
 export const nav = ['about', 'resume', 'projects']
 
+const apiPath = []
+
+if (process.env.NODE_ENV === 'production') {
+  apiPath.push(site.url)
+}
+
+apiPath.push('api')
+
 export const api = {
-  _root: 'api',
+  _root: apiPath.join('/'),
   pages: '/pages',
   page: '/pages/{{pageSlug}}',
   posts: '/posts?page={{page}}',
