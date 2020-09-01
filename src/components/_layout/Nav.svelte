@@ -14,9 +14,9 @@
     <a class="site-title" href="/">{site.title}</a>
 
     <nav class="site-nav">
-      {#each pages as { slug, href, title }}
+      {#each pages as { slug, href, title, link }}
         <a class="page-link" class:selected={segment === slug} {href} rel="prefetch">
-          {title}
+          {link || title}
         </a>
       {/each}
     </nav>

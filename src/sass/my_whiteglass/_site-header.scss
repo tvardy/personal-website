@@ -7,8 +7,28 @@
   }
 }
 
-.site-nav {
-  .page-link.selected {
+.site-title {
+  font-weight: 400;
+  letter-spacing: 0;
+
+  &:hover {
     color: $brand-color;
+    text-decoration: none;
+  }
+}
+
+.site-nav {
+  .page-link {
+    display: inline-block;
+
+    &:hover {
+      color: $brand-color;
+      text-decoration: none;
+    }
+
+    &.selected {
+      color: $brand-color;
+      border-bottom: 2px solid $brand-color;
+    }
   }
 }

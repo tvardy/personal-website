@@ -1,5 +1,5 @@
 export const site = {
-  title: 'Ooga-Bloga',
+  title: 'ooga blo.ga',
   description: `A developers' website to share some thoughts, ideas, code, an official resume etc.`,
   url: 'https://ooga-blo.ga',
   author: {

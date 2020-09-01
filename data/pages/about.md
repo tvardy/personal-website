@@ -1,6 +1,7 @@
 ---
 slug: about
 title: About
+link: about
 href: /about
 ---
 
