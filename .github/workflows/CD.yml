@@ -46,4 +46,6 @@ jobs:
             cd ${{ secrets.DC_PATH }}
             npm ci --production
             ln -fs ../.env ./.env.production
+            chmod u+x pm_*.sh
+            ./pm_restart.sh
             ${{ secrets.DC_FINISH }}
