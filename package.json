@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build",
+    "clean": "rm -rf __sapper__",
     "export": "sapper export",
-    "prestart": "npm run build",
-    "start": "node .",
+    "start": "node -r dotenv/config . dotenv_config_path=./.env.production",
     "#cy:run": "cypress run",
     "#cy:open": "cypress open",
     "check": "svelte-check && prettier --write ./src/*",
