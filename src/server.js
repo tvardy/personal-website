@@ -1,3 +1,4 @@
+import './_dotenv.config'
 import polka from 'polka'
 
 import compression from 'compression'

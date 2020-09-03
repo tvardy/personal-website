@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 import APIService from './_api_service'
 import { trimInner, memoize } from '../_utils'
 
