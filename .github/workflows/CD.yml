@@ -25,6 +25,7 @@ jobs:
             package.json
             package-lock.json
             app.js
+            pm_*.sh
 
   deploy:
     needs: build
