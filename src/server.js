@@ -14,7 +14,8 @@ const _next = (_, __, next) => {
 
 import { site, api } from './_settings'
 
-// TODO: build -> remove all comments from JS files
+// TODO: build -> remove all comments from client JS files
+// TODO: use winston as an in/out logger
 // TODO: minify SSR HTML
 // TODO (v2): think of having a redirects file
 
@@ -26,7 +27,7 @@ polka()
       : helmet({
           contentSecurityPolicy: false,
         }),
-    dev ? sirv('public', { dev }) : _next,
+    sirv('public', { dev }),
     sapper.middleware({
       session: () => ({
         site,

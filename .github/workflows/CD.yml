@@ -46,4 +46,3 @@ jobs:
             ln -fs ../.env ./.env.production
             chmod u+x pm_*.sh
             ./pm_restart.sh
-            ${{ secrets.DC_FINISH }}
