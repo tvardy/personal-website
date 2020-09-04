@@ -12,6 +12,16 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10.x
+      - uses: actions/cache@v2
+        env:
+          cache-name: cache-npm
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       - run: npm ci
       - run: npm run build
       - uses: actions/upload-artifact@v2
@@ -44,5 +54,4 @@ jobs:
             cd ${{ secrets.DC_PATH }}
             npm ci --production
             ln -fs ../.env ./.env.production
-            chmod u+x pm_*.sh
-            ./pm_restart.sh
+            bash ./pm_restart.sh
