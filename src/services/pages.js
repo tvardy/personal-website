@@ -14,7 +14,7 @@ const readFile = pify(fs.readFile)
 
 class PostsService {
   async preCache() {
-    console.time('pages.preCache') // TODO: remember about removing this
+    console.time('pages.preCache')
     const files = await fastglob(paths.data + paths.pages)
     const data = await Promise.all(
       files.map((file) => readFile(path.resolve(file), 'utf8'))
@@ -25,7 +25,8 @@ class PostsService {
       .reduce(reduceToObjByKey('attributes.slug'), {})
 
     this._navData = nav.map((slug) => this._pages[slug].attributes)
-    console.timeEnd('pages.preCache') // TODO: remember about removing this
+    console.timeEnd('pages.preCache')
+    console.debug(`${Object.keys(this._pages).length} pages found`)
   }
 
   getPage(slug) {

@@ -14,7 +14,7 @@ const readFile = pify(fs.readFile)
 
 class PostsService {
   async preCache() {
-    console.time('posts.preCache') // TODO: remember about removing this
+    console.time('posts.preCache')
     const files = await fastglob(paths.data + paths.posts)
     const data = await Promise.all(
       files.map((file) => readFile(path.resolve(file), 'utf8'))
@@ -22,7 +22,8 @@ class PostsService {
 
     this._posts = files.map(_parsePost).reverse()
 
-    console.timeEnd('posts.preCache') // TODO: remember about removing this
+    console.timeEnd('posts.preCache')
+    console.debug(`${this._posts.length} posts found`)
 
     function _parsePost(file, i) {
       const basename = path.basename(file)
