@@ -3,6 +3,7 @@ import polka from 'polka'
 
 import compression from 'compression'
 import helmet from 'helmet'
+import morgan from 'morgan'
 import sirv from 'sirv'
 import * as sapper from '@sapper/server'
 
@@ -15,12 +16,12 @@ const _next = (_, __, next) => {
 import { site, api } from './_settings'
 
 // TODO: build -> remove all comments from client JS files
-// TODO: use winston as an in/out logger
 // TODO: minify SSR HTML
 // TODO (v2): think of having a redirects file
 
 polka()
   .use(
+    morgan(dev ? 'dev' : 'common'),
     compression({ threshold: 0 }),
     dev
       ? _next
