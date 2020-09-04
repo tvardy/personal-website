@@ -17,7 +17,7 @@ import { site, api } from './_settings'
 
 // TODO (v2): think of having a redirects file
 
-polka()
+const { server } = polka()
   .use(
     morgan(dev ? 'dev' : 'common'),
     compression({ threshold: 0 }),
@@ -37,3 +37,5 @@ polka()
   .listen(PORT, (err) => {
     if (err) console.error('error', err)
   })
+
+console.info('ready at:', server.address())
