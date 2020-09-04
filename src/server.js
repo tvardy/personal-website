@@ -15,7 +15,6 @@ const _next = (_, __, next) => {
 
 import { site, api } from './_settings'
 
-// TODO: minify SSR HTML
 // TODO (v2): think of having a redirects file
 
 polka()
