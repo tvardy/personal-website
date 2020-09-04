@@ -8,7 +8,7 @@
     "build": "sapper build",
     "clean": "rm -rf __sapper__",
     "export": "sapper export",
-    "start": "node -r dotenv/config . dotenv_config_path=./.env.production",
+    "start": "node .",
     "#cy:run": "cypress run",
     "#cy:open": "cypress open",
     "check": "svelte-check && prettier --write ./src/*",
