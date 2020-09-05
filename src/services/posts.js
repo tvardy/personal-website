@@ -27,14 +27,21 @@ class PostsService {
 
     function _parsePost(file, i) {
       const basename = path.basename(file)
-      const [, date, slug] = basename.match(/^(\d{4}-\d{2}-\d{2})-([\w-]+)\.\w{2,3}$/)
+      const [, date, slug] = basename.match(/^_?(\d{4}-\d{2}-\d{2})-([\w-]+)\.\w{2,3}$/)
+      const draft = /^_/.test(basename)
       const { attributes, body } = matter(data[i])
       const excerpt = body.split(site.excerpt_separator)[0]
 
+      let fileName = basename.replace(`${path.extname(file)}`, '')
+      if (draft) {
+        fileName = fileName.replace(/^_/, '')
+      }
+
       const post = {
-        file: basename.replace(`${path.extname(file)}`, ''),
+        file: fileName,
         tags: [],
         ...attributes,
+        draft,
         date,
         slug,
         excerpt,

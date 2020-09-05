@@ -1,5 +1,5 @@
 ---
-title: Post 1
+title: Post Draft
 tags: [tag-1, tag-2]
 ---
 

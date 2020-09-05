@@ -19,7 +19,7 @@
   </header>
 
   <div class="page-content">
-    <Markdown content={page.content} />
+    <Markdown content={page.body} />
   </div>
 
 </article>

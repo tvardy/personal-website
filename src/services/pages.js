@@ -21,7 +21,18 @@ class PostsService {
     )
 
     this._pages = data
-      .map((str) => matter(str))
+      .map((str, i) => {
+        const page = matter(str)
+
+        if (/\/_/.test(files[i])) {
+          page.attributes.draft = true
+        }
+
+        delete page.bodyBegin
+        delete page.frontmatter
+
+        return page
+      })
       .reduce(reduceToObjByKey('attributes.slug'), {})
 
     this._navData = nav.map((slug) => this._pages[slug].attributes)
@@ -34,8 +45,8 @@ class PostsService {
 
     if (page) {
       return {
-        title: page.attributes.title,
-        content: page.body,
+        ...page.attributes,
+        body: page.body,
       }
     } else {
       throw {
