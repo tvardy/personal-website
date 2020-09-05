@@ -1,7 +1,7 @@
 <script context="module">
   import { getDataOrRespondWithError } from '../_utils'
 
-  export async function preload({ path }, { api, site }) {
+  export async function preload({ path }, { api, site, drafts }) {
     const url = api._root + api.pages
 
     const params = {
@@ -10,7 +10,7 @@
 
     const pages = await getDataOrRespondWithError(this, url)
 
-    return { site, pages, params }
+    return { site, pages, params, drafts }
   }
 </script>
 
@@ -22,6 +22,7 @@
 
   // props
   export let segment
+  export let drafts
   export let params = {}
   export let site = {}
   export let pages = []
@@ -47,6 +48,10 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/png" href="favicon.png" />
 </svelte:head>
+
+{#if drafts}
+  <pre class="debug info">DRAFTS ALLOWED</pre>
+{/if}
 
 <PageNav {segment} {site} {pages} />
 

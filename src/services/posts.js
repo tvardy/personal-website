@@ -27,21 +27,26 @@ class PostsService {
 
     function _parsePost(file, i) {
       const basename = path.basename(file)
-      const [, date, slug] = basename.match(/^(\d{4}-\d{2}-\d{2})-([\w-]+)\.\w{2,3}$/)
+      const [, date, slug] = basename.match(/^_?(\d{4}-\d{2}-\d{2})-([\w-]+)\.\w{2,3}$/)
+      const draft = /^_/.test(basename)
       const { attributes, body } = matter(data[i])
       const excerpt = body.split(site.excerpt_separator)[0]
 
-      const post = {
-        file: basename.replace(`${path.extname(file)}`, ''),
+      let fileName = basename.replace(`${path.extname(file)}`, '')
+      if (draft) {
+        fileName = fileName.replace(/^_/, '')
+      }
+
+      return {
+        file: fileName,
         tags: [],
         ...attributes,
+        draft,
         date,
         slug,
         excerpt,
         body,
       }
-
-      return post
     }
   }
 
@@ -78,13 +83,22 @@ class PostsService {
   }
 
   async findOne(key, short) {
-    return Promise.resolve(this._post(key, short))
+    return new Promise((resolve, reject) => {
+      try {
+        const post = this._post(key, short)
+        resolve(post)
+      } catch (e) {
+        reject(e)
+      }
+    })
   }
 
   _post(file, short) {
-    const post = Object.assign({}, find(this._posts, { file }))
+    const data = find(this._posts, { file })
 
-    if (post) {
+    if (data) {
+      const post = Object.assign({}, data)
+
       if (short) {
         delete post.body
       }
@@ -93,7 +107,7 @@ class PostsService {
     } else {
       throw {
         status: 404,
-        message: 'resource not found',
+        message: 'Resource not found',
       }
     }
   }
@@ -101,6 +115,7 @@ class PostsService {
 
 const _has = {
   tag: (post, tag) => post.tags.includes(tag),
+  draft: (post) => !post.draft,
 }
 
 const instance = new PostsService()

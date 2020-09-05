@@ -3,16 +3,25 @@ import PostsService from '../../../services/posts'
 
 import { sendJSON } from '../../../_utils'
 
-export async function get(req, res) {
-  const { postSlug } = req.params
-  const short = req.query.short !== undefined
+export async function get({ query, params, session }, res) {
+  const { postSlug } = params
+  const short = query.short !== undefined
 
   let data
 
   try {
     data = await PostsService.findOne(postSlug, short)
+
+    if (!session.drafts && data.draft) {
+      throw {
+        status: 403,
+        message: 'Access forbidden',
+      }
+    }
   } catch ({ status, message }) {
+    console.log('ERROR:', status, message)
     sendJSON(res, { message }, status)
+    return
   }
 
   if (data.image) {

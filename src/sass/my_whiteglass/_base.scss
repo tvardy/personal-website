@@ -10,3 +10,16 @@ abbr {
   border-bottom: 1px dotted $brand-color;
   cursor: help;
 }
+
+pre.debug {
+  &.info {
+    text-align: center;
+    border-color: $brand-color;
+    color: $brand-color;
+  }
+
+  &.error {
+    border-color: $error-color;
+    color: $error-color;
+  }
+}
