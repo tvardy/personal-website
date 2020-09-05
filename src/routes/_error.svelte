@@ -32,5 +32,5 @@
 {/if}
 
 {#if dev && error.stack}
-  <pre>{error.stack}</pre>
+  <pre class="debug error">{error.stack}</pre>
 {/if}

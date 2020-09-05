@@ -50,7 +50,7 @@
 </svelte:head>
 
 {#if drafts}
-  <pre>DRAFTS ALLOWED</pre>
+  <pre class="debug info">DRAFTS ALLOWED</pre>
 {/if}
 
 <PageNav {segment} {site} {pages} />

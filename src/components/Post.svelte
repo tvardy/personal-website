@@ -28,7 +28,6 @@
   itemtype="http://schema.org/BlogPosting"
   lang={post.lang || site.lang}
 >
-
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{post.title}</h1>
 
@@ -47,5 +46,4 @@
   <div class="post-content" itemprop="articleBody">
     <Markdown content={post.body} />
   </div>
-
 </article>

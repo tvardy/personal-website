@@ -10,7 +10,6 @@
 
 <header class="site-header">
   <div class="wrapper">
-
     <a class="site-title" href="/">{site.title}</a>
 
     <nav class="site-nav">
@@ -20,6 +19,5 @@
         </a>
       {/each}
     </nav>
-
   </div>
 </header>
