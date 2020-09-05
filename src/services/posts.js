@@ -37,7 +37,7 @@ class PostsService {
         fileName = fileName.replace(/^_/, '')
       }
 
-      const post = {
+      return {
         file: fileName,
         tags: [],
         ...attributes,
@@ -47,8 +47,6 @@ class PostsService {
         excerpt,
         body,
       }
-
-      return post
     }
   }
 
@@ -85,13 +83,22 @@ class PostsService {
   }
 
   async findOne(key, short) {
-    return Promise.resolve(this._post(key, short))
+    return new Promise((resolve, reject) => {
+      try {
+        const post = this._post(key, short)
+        resolve(post)
+      } catch (e) {
+        reject(e)
+      }
+    })
   }
 
   _post(file, short) {
-    const post = Object.assign({}, find(this._posts, { file }))
+    const data = find(this._posts, { file })
 
-    if (post) {
+    if (data) {
+      const post = Object.assign({}, data)
+
       if (short) {
         delete post.body
       }
@@ -100,7 +107,7 @@ class PostsService {
     } else {
       throw {
         status: 404,
-        message: 'resource not found',
+        message: 'Resource not found',
       }
     }
   }
