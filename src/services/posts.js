@@ -115,6 +115,7 @@ class PostsService {
 
 const _has = {
   tag: (post, tag) => post.tags.includes(tag),
+  draft: (post) => !post.draft,
 }
 
 const instance = new PostsService()
