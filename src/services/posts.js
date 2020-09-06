@@ -69,6 +69,10 @@ class PostsService {
     return Promise.resolve(this._paged(posts, { page, limit, short }))
   }
 
+  _all() {
+    return this._paged(this._posts, { page: 1, limit: 65536, short: true })
+  }
+
   _paged(posts, { page, limit, short }) {
     const start = (page - 1) * limit
     const end = start + limit
@@ -116,8 +120,4 @@ const _has = {
   draft: (post) => !post.draft,
 }
 
-const instance = new PostsService()
-
-instance.preCache()
-
-export default instance
+export default new PostsService()

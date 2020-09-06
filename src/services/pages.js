@@ -67,8 +67,4 @@ class PostsService {
   }
 }
 
-const instance = new PostsService()
-
-instance.preCache()
-
-export default instance
+export default new PostsService()
