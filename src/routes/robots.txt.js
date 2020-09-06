@@ -8,7 +8,7 @@ const nl = '\r\n'
 export async function get(_, res) {
   let result = ''
 
-  if (NODE_ENV === 'production') {
+  if (NODE_ENV !== 'production') {
     result += 'Disallow: /'
   } else {
     PageService.unlinked.forEach((slug) => {
