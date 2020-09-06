@@ -10,8 +10,6 @@ import { reduceToObjByKey } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
-// TODO: allow showing drafts
-
 class PostsService {
   async preCache() {
     console.time('pages.preCache')
@@ -22,20 +20,27 @@ class PostsService {
 
     this._pages = data
       .map((str, i) => {
-        const page = matter(str)
+        const { attributes, body } = matter(str)
 
         if (/\/_/.test(files[i])) {
-          page.attributes.draft = true
+          attributes.draft = true
         }
 
-        delete page.bodyBegin
-        delete page.frontmatter
-
-        return page
+        return {
+          ...attributes,
+          body,
+        }
       })
-      .reduce(reduceToObjByKey('attributes.slug'), {})
+      .reduce(reduceToObjByKey('slug'), {})
 
-    this._navData = nav.map((slug) => this._pages[slug].attributes)
+    this._navData = nav.map((slug) => {
+      const page = Object.assign({}, this._pages[slug])
+
+      delete page.body
+
+      return page
+    })
+
     console.timeEnd('pages.preCache')
     console.debug(`${Object.keys(this._pages).length} pages found`)
   }
@@ -44,10 +49,7 @@ class PostsService {
     const page = this._pages[slug]
 
     if (page) {
-      return {
-        ...page.attributes,
-        body: page.body,
-      }
+      return page
     } else {
       throw {
         status: 404,
@@ -58,6 +60,10 @@ class PostsService {
 
   get navData() {
     return this._navData
+  }
+
+  get unlinked() {
+    return Object.keys(this._pages).filter((slug) => this._pages[slug].draft)
   }
 }
 
