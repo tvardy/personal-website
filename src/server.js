@@ -8,10 +8,11 @@ import session from 'express-session'
 import sirv from 'sirv'
 import * as sapper from '@sapper/server'
 
+import { site, api } from './_settings'
+
 import PagesService from './services/pages'
 import PostsService from './services/posts'
 import SitemapService from './services/sitemap'
-
 ;(async () => {
   await PagesService.preCache()
   await PostsService.preCache()
@@ -24,8 +25,6 @@ const _next = (_, __, next) => {
   next()
 }
 
-import { site, api } from './_settings'
-
 // TODO (v2): think of having a redirects file
 
 const { server } = polka()
@@ -34,6 +33,12 @@ const { server } = polka()
     compression({ threshold: 0 }),
 
     // session handling
+    /*
+      FIXME:
+        Warning: connect.session() MemoryStore is not
+        designed for a production environment, as it will leak
+        memory, and will not scale past a single process.
+    */
     session({
       secret: SESSION_SECRET,
       resave: false,
