@@ -8,6 +8,16 @@ import session from 'express-session'
 import sirv from 'sirv'
 import * as sapper from '@sapper/server'
 
+import PagesService from './services/pages'
+import PostsService from './services/posts'
+import SitemapService from './services/sitemap'
+
+;(async () => {
+  await PagesService.preCache()
+  await PostsService.preCache()
+  await SitemapService.preCache()
+})()
+
 const { PORT, NODE_ENV, SESSION_SECRET } = process.env
 const dev = NODE_ENV === 'development'
 const _next = (_, __, next) => {
