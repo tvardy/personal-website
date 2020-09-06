@@ -10,8 +10,6 @@ import { reduceToObjByKey } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
-// TODO: allow showing drafts
-
 class PostsService {
   async preCache() {
     console.time('pages.preCache')
