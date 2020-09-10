@@ -3,6 +3,7 @@ import polka from 'polka'
 
 import compression from 'compression'
 import helmet from 'helmet'
+import memoryStore from 'memorystore'
 import morgan from 'morgan'
 import session from 'express-session'
 import sirv from 'sirv'
@@ -10,20 +11,15 @@ import * as sapper from '@sapper/server'
 
 import { site, api } from './_settings'
 
-import PagesService from './services/pages'
-import PostsService from './services/posts'
-import SitemapService from './services/sitemap'
-;(async () => {
-  await PagesService.preCache()
-  await PostsService.preCache()
-  await SitemapService.preCache()
-})()
+import './services' // run services pre-cache
 
 const { PORT, NODE_ENV, SESSION_SECRET } = process.env
 const dev = NODE_ENV === 'development'
 const _next = (_, __, next) => {
   next()
 }
+
+const MemoryStore = memoryStore(session)
 
 // TODO (v2): think of having a redirects file
 
@@ -33,15 +29,13 @@ const { server } = polka()
     compression({ threshold: 0 }),
 
     // session handling
-    /*
-      FIXME:
-        Warning: connect.session() MemoryStore is not
-        designed for a production environment, as it will leak
-        memory, and will not scale past a single process.
-    */
     session({
       secret: SESSION_SECRET,
       resave: false,
+      store: new MemoryStore({
+        checkPeriod: 43200000, // prune expired entries every 12h
+        max: 255, // max entries
+      }),
       saveUninitialized: false,
       cookie: {
         httpOnly: true,
