@@ -10,10 +10,16 @@
 .site-title {
   font-weight: 400;
   letter-spacing: 0;
+  margin-left: -#{$base-line-height / 2}em;
 
   &:hover {
     color: $brand-color;
     text-decoration: none;
+  }
+
+  img {
+    width: #{$base-line-height}em;
+    margin-top: -#{$base-line-height / 3}em;
   }
 }
 

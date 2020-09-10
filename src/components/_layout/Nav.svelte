@@ -10,7 +10,10 @@
 
 <header class="site-header">
   <div class="wrapper">
-    <a class="site-title" href="/">{site.title}</a>
+    <a class="site-title" href="/">
+      <img src="/images/idea.png" alt="a... bulb icon ;)" />
+      {site.title}
+    </a>
 
     <nav class="site-nav">
       {#each pages as { slug, href, title, link }}
