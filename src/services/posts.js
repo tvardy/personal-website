@@ -6,11 +6,15 @@ import matter from 'front-matter'
 import pify from 'pify'
 
 import { paths, site } from '../_settings'
-import { find, filter } from '../_utils'
+import { find, filter, _isDev } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
 class PostsService {
+  constructor(devMode) {
+    this.devMode = devMode
+  }
+
   async preCache() {
     console.time('posts.preCache')
     const files = await fastglob(paths.data + paths.posts)
@@ -18,34 +22,10 @@ class PostsService {
       files.map((file) => readFile(path.resolve(file), 'utf8'))
     )
 
-    this._posts = files.map(_parsePost).reverse()
+    this._posts = files.map((file, i) => _parsePost(file, data[i])).reverse()
 
     console.timeEnd('posts.preCache')
     console.debug(`${this._posts.length} posts found`)
-
-    function _parsePost(file, i) {
-      const basename = path.basename(file)
-      const [, date, slug] = basename.match(/^_?(\d{4}-\d{2}-\d{2})-([\w-]+)\.\w{2,3}$/)
-      const draft = /^_/.test(basename)
-      const { attributes, body } = matter(data[i])
-      const excerpt = body.split(site.excerpt_separator)[0]
-
-      let fileName = basename.replace(`${path.extname(file)}`, '')
-      if (draft) {
-        fileName = fileName.replace(/^_/, '')
-      }
-
-      return {
-        file: fileName,
-        tags: [],
-        ...attributes,
-        draft,
-        date,
-        slug,
-        excerpt,
-        body,
-      }
-    }
   }
 
   async findAll({
@@ -96,7 +76,13 @@ class PostsService {
   }
 
   _post(file, short) {
-    const data = find(this._posts, { file })
+    let data = find(this._posts, { file })
+
+    if (this.devMode) {
+      const path = data.path
+      data = fs.readFileSync(path)
+      data = _parsePost(path, data.toString())
+    }
 
     if (data) {
       const post = Object.assign({}, data)
@@ -115,9 +101,34 @@ class PostsService {
   }
 }
 
+function _parsePost(file, data) {
+  const basename = path.basename(file)
+  const [, date, slug] = basename.match(/^_?(\d{4}-\d{2}-\d{2})-([\w-]+)\.\w{2,3}$/)
+  const draft = /^_/.test(basename)
+  const { attributes, body } = matter(data)
+  const excerpt = body.split(site.excerpt_separator)[0]
+
+  let fileName = basename.replace(`${path.extname(file)}`, '')
+  if (draft) {
+    fileName = fileName.replace(/^_/, '')
+  }
+
+  return {
+    file: fileName,
+    path: file,
+    tags: [],
+    ...attributes,
+    draft,
+    date,
+    slug,
+    excerpt,
+    body,
+  }
+}
+
 const _has = {
   tag: (post, tag) => post.tags.includes(tag),
   draft: (post) => !post.draft,
 }
 
-export default new PostsService()
+export default new PostsService(_isDev())

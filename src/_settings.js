@@ -1,3 +1,5 @@
+import { _isDev } from './_utils'
+
 export const site = {
   title: 'ooga blo.ga',
   description: `A developers' website to share some thoughts, ideas, code, an official resume etc.`,
@@ -15,10 +17,9 @@ export const site = {
 
 export const nav = ['about', 'resume', 'projects']
 
-const { NODE_ENV } = process.env
 const apiPath = []
 
-if (NODE_ENV === 'production') {
+if (!_isDev()) {
   apiPath.push(site.url)
 }
 

@@ -5,6 +5,10 @@ import { DateTime } from 'luxon'
 import _filter from 'lodash.filter'
 import _find from 'lodash.find'
 
+export function _isDev() {
+  return process.env.NODE_ENV === 'development'
+}
+
 export function getPageTitle(site, { title } = {}) {
   return `${title ? `${title} | ` : ''}${site.title}`
 }

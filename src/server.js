@@ -11,7 +11,8 @@ import * as sapper from '@sapper/server'
 
 import { site, api } from './_settings'
 
-import './services' // run services pre-cache
+import './services'
+import { _isDev } from './_utils' // run services pre-cache
 
 const { PORT, NODE_ENV, SESSION_SECRET } = process.env
 const dev = NODE_ENV === 'development'
@@ -77,4 +78,4 @@ const { server } = polka()
     if (err) console.error('error', err)
   })
 
-console.info('ready at:', server.address())
+console.info('ready at:', server.address().port, _isDev() ? '[DEV Mode active!]' : '')

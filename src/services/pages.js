@@ -6,11 +6,15 @@ import matter from 'front-matter'
 import pify from 'pify'
 
 import { paths, nav } from '../_settings'
-import { reduceToObjByKey } from '../_utils'
+import { _isDev, reduceToObjByKey } from '../_utils'
 
 const readFile = pify(fs.readFile)
 
 class PostsService {
+  constructor(devMode) {
+    this.devMode = devMode
+  }
+
   async preCache() {
     console.time('pages.preCache')
     const files = await fastglob(paths.data + paths.pages)
@@ -67,4 +71,4 @@ class PostsService {
   }
 }
 
-export default new PostsService()
+export default new PostsService(_isDev())
