@@ -19,7 +19,6 @@ export async function get({ query, params, session }, res) {
       }
     }
   } catch ({ status, message }) {
-    console.log('ERROR:', status, message)
     sendJSON(res, { message }, status)
     return
   }

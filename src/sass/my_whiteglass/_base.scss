@@ -1,3 +1,13 @@
+html {
+  background: darken($background-color, 2.5%);
+}
+
+body {
+  background: $background-color;
+  max-width: $body-max-width;
+  margin: 0 auto;
+}
+
 a {
   color: $brand-color;
 

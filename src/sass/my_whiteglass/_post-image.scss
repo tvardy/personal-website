@@ -1,23 +1,20 @@
 .post-image {
-  $oversize: 8rem;
-  $image-max-width: $content-width + $oversize;
-
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-color: $grey-color-light;
 
-  box-shadow: inset 0 0 0.25rem rgba($brand-color, 0.66);
+  box-shadow: inset 0 0 0.25rem rgba($brand-color, 0.22);
 
   margin-bottom: $spacing-unit;
   width: $image-max-width;
   height: $content-width / 2;
 
   position: relative;
-  left: -($oversize / 2 + $spacing-unit);
+  left: -($image-oversize / 2 + $spacing-unit);
 
   @include media-query($on-laptop) {
-    left: -($oversize / 2 + $spacing-unit / 2);
+    left: -($image-oversize / 2 + $spacing-unit / 2);
   }
 
   @include media-query($image-max-width) {
