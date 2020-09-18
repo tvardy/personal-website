@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v2
-      - uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+      - uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.2
         with:
           host: ${{ secrets.DC_HOST }}
           user: ${{ secrets.DC_USER }}
