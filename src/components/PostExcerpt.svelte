@@ -16,10 +16,6 @@
   const formattedDate = luxDate.toFormat('DDD')
 </script>
 
-<style lang="scss">
-  @import '../sass/post-excerpt';
-</style>
-
 <header class="post-header">
   <h1 class="post-title">
     <a class="post-link" href={getPermalink(post)} rel="prefetch">{post.title}</a>
@@ -38,3 +34,7 @@
 <p class="post-continue">
   <a href={getPermalink(post)} rel="prefetch">Read on &rarr;</a>
 </p>
+
+<style lang="scss">
+  @import '../sass/post-excerpt';
+</style>

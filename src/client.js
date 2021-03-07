@@ -1,6 +1,6 @@
-import './_dotenv.config'
-import * as sapper from '@sapper/app'
+// import './_dotenv.config'
+import { start } from '@sapper/app'
 
-sapper.start({
+start({
   target: document.body,
 })

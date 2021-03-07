@@ -28,10 +28,6 @@
   export let pages = []
 </script>
 
-<style lang="scss" global>
-  @import '../sass/main';
-</style>
-
 <svelte:head>
   <meta name="description" content={site.description} />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,3 +61,7 @@
 </PageMain>
 
 <PageFooter {site} />
+
+<style lang="scss" global>
+  @import '../sass/main';
+</style>

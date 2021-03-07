@@ -3,11 +3,6 @@
   export let className
 </script>
 
-<style lang="scss">
-  @import '../../sass/page';
-  @import '../../sass/post';
-</style>
-
 {#if segment}
   <!-- {segment} -->
 {/if}
@@ -17,3 +12,8 @@
     <slot />
   </div>
 </main>
+
+<style lang="scss">
+  @import '../../sass/page';
+  @import '../../sass/post';
+</style>

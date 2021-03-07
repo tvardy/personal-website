@@ -16,10 +16,6 @@
   const url = `${params.url}?auto=format${format.join('')}&${size.join('&')}`
 </script>
 
-<style lang="scss">
-  @import '../../sass/post-image';
-</style>
-
 <div class="post-image {params.class}" style="background-image: url({url})">
   {#if params.attribution}
     <span class="post-image-attribution">
@@ -27,3 +23,7 @@
     </span>
   {/if}
 </div>
+
+<style lang="scss">
+  @import '../../sass/post-image';
+</style>

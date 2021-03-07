@@ -7,7 +7,7 @@ import memoryStore from 'memorystore'
 import morgan from 'morgan'
 import session from 'express-session'
 import sirv from 'sirv'
-import * as sapper from '@sapper/server'
+import { middleware as sapperMiddleware } from '@sapper/server'
 
 import { site, api } from './_settings'
 
@@ -66,7 +66,7 @@ const { server } = polka()
     sirv('public', { dev }),
 
     // the main reason we're using the backend - SSR
-    sapper.middleware({
+    sapperMiddleware({
       session: (req) => ({
         drafts: req.session.drafts,
         site,

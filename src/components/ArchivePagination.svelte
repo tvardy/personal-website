@@ -9,10 +9,6 @@
   const visible = !last || page > 1
 </script>
 
-<style lang="scss">
-  @import '../sass/post-pagination';
-</style>
-
 {#if visible}
   <div class="pagination">
     {#if !last}
@@ -23,3 +19,7 @@
     {/if}
   </div>
 {/if}
+
+<style lang="scss">
+  @import '../sass/post-pagination';
+</style>

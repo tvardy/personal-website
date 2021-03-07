@@ -5,20 +5,17 @@
   "main": "app.js",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build",
-    "clean": "rm -rf __sapper__",
-    "export": "sapper export",
+    "build": "sapper build --legacy",
+    "clean": "rm -rf __sapper__ && rm -rf src/node_modules && rm -rf .sass-cache",
+    "export": "sapper export --legacy",
     "start": "node .",
-    "#cy:run": "cypress run",
-    "#cy:open": "cypress open",
     "check": "svelte-check && prettier --write ./src/*",
-    "test": "echo \"no tests yet provided\" && exit 0",
-    "#test": "run-p --race check dev cy:run"
+    "test": "echo \"no tests yet provided\" && exit 0"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
-      "pre-push": "npm run check && npm test"
+      "pre-push": "npm run check"
     }
   },
   "dependencies": {
