@@ -2,6 +2,21 @@ html {
   background: darken($background-color, 2.5%);
 }
 
+html.dark-mode {
+  filter: contrast(90%) invert(90%) hue-rotate(180deg) !important;
+
+  img,
+  video,
+  iframe,
+  canvas,
+  svg,
+  embed[type="application/x-shockwave-flash"],
+  object[type="application/x-shockwave-flash"],
+  *[style*="url("] {
+    filter: invert(100%) hue-rotate(-180deg) !important;
+  }
+}
+
 body {
   background: $background-color;
   max-width: $body-max-width;

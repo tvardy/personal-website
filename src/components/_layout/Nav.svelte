@@ -2,18 +2,18 @@
   export let segment
   export let site
   export let pages
-</script>
 
-<style lang="scss">
-  @import '../../sass/site-header';
-</style>
+  function toggleColorMode() {
+    document.getElementsByTagName('html')[0].classList.toggle('dark-mode')
+  }
+</script>
 
 <header class="site-header">
   <div class="wrapper">
-    <a class="site-title" href="/">
-      <img src="/images/idea.png" alt="a... bulb icon ;)" />
-      {site.title}
-    </a>
+    <div class="site-title">
+      <img src="/images/idea.png" alt="a... bulb icon ;)" on:click={toggleColorMode} />
+      <a href="/">{site.title}</a>
+    </div>
 
     <nav class="site-nav">
       {#each pages as { slug, href, title, link }}
@@ -24,3 +24,7 @@
     </nav>
   </div>
 </header>
+
+<style lang="scss">
+  @import '../../sass/site-header';
+</style>
