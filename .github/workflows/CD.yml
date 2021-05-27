@@ -53,6 +53,6 @@ jobs:
             './artifact/*' => ${{ secrets.DC_PATH }}
           last_ssh: |
             cd ${{ secrets.DC_PATH }}
-            npm ci --production
+            npm ci --production --ignore-scripts
             ln -fs ../.env ./.env.production
             bash ./pm_restart.sh
