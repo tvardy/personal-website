@@ -10,13 +10,10 @@
     "export": "sapper export --legacy",
     "start": "node .",
     "check": "svelte-check && prettier --write ./src/*",
-    "test": "echo \"no tests yet provided\" && exit 0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged",
-      "pre-push": "npm run check"
-    }
+    "git-pre-commit": "pretty-quick --staged",
+    "git-pre-push": "npm run check",
+    "test": "echo \"no tests yet provided\" && exit 0",
+    "prepare": "husky install"
   },
   "dependencies": {
     "aguid": "2.0.0",
@@ -56,7 +53,7 @@
     "@types/marked": "2.0.3",
     "autoprefixer": "10.2.6",
     "cz-conventional-changelog": "3.3.0",
-    "husky": "4.3.8",
+    "husky": "^6.0.0",
     "node-sass": "6.0.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.3.0",
